@@ -182,3 +182,7 @@ each time, never saved.
   in", "Kit to consider") clearer: was small grey uppercase text, now sentence case, larger,
   bold, accent yellow, with a divider line above each section. Build tested clean before pushing.
   Pushed and live.
+- **21 August 2026** — Enlarged the sport name and emoji at the top of each results card
+  (icon 22px → 34px, heading 1.15rem → 1.6rem, bolder weight) so it stands out as the primary
+  heading of each section rather than blending in with the sub-headers below it. Only changed on
+  the results page, not the quiz tile icons. Build tested clean before pushing. Pushed and live.
