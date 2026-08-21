@@ -42,6 +42,10 @@ Claude.ai knowledge base (not duplicated here to avoid drift — see section 7).
 - Source control: GitHub
 - Contact form: Web3Forms (relay service, no backend, no stored data) — access key configured
 - No database, no backend server, no user accounts anywhere in the current build
+- Three hotlinked external assets (21 Aug 2026): Google Fonts (Space Grotesk + Inter), one
+  Unsplash photo (homepage hero), and Twemoji SVGs via jsDelivr (sport icons). All three are
+  free/no-auth CDN dependencies — if any of them go down or change URL structure, that specific
+  asset breaks but the rest of the site keeps working (no shared point of failure).
 
 ## 4. Project structure
 
@@ -200,3 +204,26 @@ each time, never saved.
   first-timer. Flagged as a known minor rough edge, not fixed, since the scoped plan was headers
   and framing only, not a full content rewrite. Build tested clean before pushing. Pushed and
   live.
+- **21 August 2026** — Visual overhaul (typography, photography, icons, depth/polish):
+  - Typography: replaced the OS-default font stack with Space Grotesk (headings, via Google
+    Fonts) and Inter (body). Added `--font-display`/`--font-body` CSS variables. Buttons/inputs
+    now explicitly inherit the body font instead of falling back to browser UA styling.
+  - Photography: added a homepage hero image (floodlit five-a-side pitch at night, by Abigail
+    Keenan on Unsplash, standard Unsplash License — free for commercial use, no attribution
+    required) above the "What sport did you play?" step, with a dark gradient overlay carrying
+    the "reclaiming or claiming" tagline text. Hotlinked from Unsplash's CDN rather than
+    self-hosted, since this environment's sandbox can't download image binaries from external
+    hosts (network allowlist blocks image CDNs) — confirmed the live site itself has no such
+    restriction, since it's the visitor's own browser fetching the image.
+  - Icons: sport icons now render as Twemoji SVGs (hotlinked from jsDelivr's `jdecked/twemoji`
+    mirror) instead of raw OS emoji characters, so every sport icon looks identical across every
+    device/browser instead of depending on whichever emoji font a visitor's OS happens to have.
+    `SportIcon.jsx` computes the Twemoji codepoint from each emoji at runtime rather than
+    hardcoding hex codes, to avoid transcription errors. Verified a sample of codepoints
+    (including surrogate-pair ones) resolve correctly before shipping.
+  - Depth/polish: sport-tile buttons, option rows, and result/CTA cards now have a subtle
+    gradient background and drop shadow instead of flat colour; hover states lift slightly with
+    a shadow; result cards fade/slide in on load (respects `prefers-reduced-motion`).
+  - Build and lint (`oxlint`) both clean before pushing. Verified live: hero image, all 14 Twemoji
+    icons, new fonts, and card styling all confirmed rendering correctly on the deployed site.
+    Pushed and live.
