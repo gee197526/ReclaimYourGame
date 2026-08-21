@@ -249,3 +249,6 @@ each time, never saved.
   a small custom inline SVG instead (black ball, yellow dot — the real look of a squash ball).
   Build and lint clean before pushing. Verified live: all 20 tiles render with correct icons,
   spot-checked one new sport's full results content (Boxing). Pushed and live.
+- **21 August 2026** — Fixed the new squash ball SVG: initial fill colour (#161616) was nearly
+  identical to the tile background, so only the yellow dot was visible on the live site, not the
+  ball itself. Changed fill to a lighter grey (#3a3a3a) with a visible stroke. Verified live.
