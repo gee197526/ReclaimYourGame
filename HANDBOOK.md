@@ -150,3 +150,13 @@ each time, never saved.
   then swapped for standard emoji per the user's preference. `src/components/SportIcon.jsx` holds
   the per-sport emoji map; two sports use substitutes since no exact emoji exists (netball →
   volleyball emoji, rugby union → American football emoji). Pushed and live.
+- **12 August 2026** — Researched justified body text (NNG and other UX sources): left-aligned
+  stays, since justified text creates uneven word spacing on narrow/mobile columns and fails
+  WCAG readability guidance. No CSS change made. Fixed the header logo crop — the previous crop
+  cut off the male runner's head, arm, and trailing leg because the crop boundary stopped short
+  of where the figure actually ends in the source image; re-cropped with correct bounds from
+  `Gemini_Generated_Image_6q7y2w6q7y2w6q7y.png` and re-generated `icon-yellow.png` /
+  `favicon-yellow.png`. Increased the header logo's display size (34px → 52px, 42px on small
+  phones) and added a header tagline ("Getting back to your healthier self!") in bold yellow,
+  right-aligned on desktop and wrapping full-width on mobile, to balance the header layout.
+  Pushed and live.
