@@ -10,10 +10,12 @@ Last updated: 21 August 2026
 
 ## 1. What this is
 
-A quiz-funnel web app for adults returning to a sport they used to play. Users answer five
+A quiz-funnel web app for adults getting into a sport — either returning to one they used to
+play, or trying it for the first time (added 21 Aug 2026, see changelog). Users answer five
 questions and get a personalised results page with content per sport and (eventually) affiliate
 kit recommendations. Positioning is emotional, not age-based — "reclaim something that was
-yours." Domain: reclaimyourgame.co.uk, purchased 6 August 2026 via GoDaddy.
+yours, or claim it for the first time." No rebrand: still Reclaim Your Game, framed as covering
+both. Domain: reclaimyourgame.co.uk, purchased 6 August 2026 via GoDaddy.
 
 Full original concept, three-phase roadmap, and market stats are preserved in the project's
 Claude.ai knowledge base (not duplicated here to avoid drift — see section 7).
@@ -186,3 +188,15 @@ each time, never saved.
   (icon 22px → 34px, heading 1.15rem → 1.6rem, bolder weight) so it stands out as the primary
   heading of each section rather than blending in with the sub-headers below it. Only changed on
   the results page, not the quiz tile icons. Build tested clean before pushing. Pushed and live.
+- **21 August 2026** — Site now welcomes first-time players, not just returners, without a
+  rebrand ("reclaim your game, or claim it for the first time"). Added "Never played — I want to
+  try it" as a new option on the "When did you last play?" step. Added a reframing line above
+  the sport-selection step on the homepage. Results page adapts: title is now the neutral "Your
+  game plan", the intro line reads "Trying it for the first time" instead of an odd "last played
+  never" sentence, "Why people loved it" changed to present tense "Why people love it" (works for
+  both), and "Getting back in" becomes "Getting started" for first-timers. Deliberately did not
+  rewrite each sport's synopsis or "getting back in" bullets — those still lean slightly toward
+  returner phrasing (e.g. "shaking off the rust") and could read a little off for a true
+  first-timer. Flagged as a known minor rough edge, not fixed, since the scoped plan was headers
+  and framing only, not a full content rewrite. Build tested clean before pushing. Pushed and
+  live.
