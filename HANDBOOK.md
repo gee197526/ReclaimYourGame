@@ -252,3 +252,23 @@ each time, never saved.
 - **21 August 2026** — Fixed the new squash ball SVG: initial fill colour (#161616) was nearly
   identical to the tile background, so only the yellow dot was visible on the live site, not the
   ball itself. Changed fill to a lighter grey (#3a3a3a) with a visible stroke. Verified live.
+- **21 August 2026** — Added a "Books to consider" affiliate section under Kit on every sport's
+  results card, same Ad badge and disclosure treatment. Considered showing TV coverage (Prime,
+  Netflix, BBC, ITV, Channel 4) per sport first — dropped that idea: it would need live listings
+  data, which breaks the site's static, no-backend architecture, and Sky/TNT Sports actually
+  dominate UK sport broadcasting rights, so limiting to those five platforms would have been
+  inaccurate anyway. Books don't have that problem — real product, works as static content, same
+  pattern as Kit.
+
+  One real book was researched and picked per sport (all 20, including the 6 added earlier today)
+  via web search restricted to amazon.co.uk, specifically to avoid inventing titles that don't
+  exist. Each pick is a genuine, currently-listed Amazon.co.uk book, favouring official/governing
+  body sources where one exists (MCC for cricket, RFU for rugby, All England Netball Association,
+  Charles Hughes' FA-published coaching book for football) or well-established named authors
+  (Ben Hogan for golf, Saulo Ribeiro's "Jiu-Jitsu University" for BJJ). Links are placeholder `#`
+  for now, matching the existing Kit links pattern — same reason: no Amazon Associates tracking
+  ID yet, trivial to swap in once approved. Full list lives in `books` arrays in `sports.js`.
+
+  Build and lint clean before pushing. Verified live: Books section renders correctly with proper
+  Ad badge/disclosure, matching Kit's styling exactly; data validated programmatically for all 20
+  sports before pushing. Pushed and live.
