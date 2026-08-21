@@ -18,6 +18,9 @@ const sports = [
       { name: "Football boots (firm ground)", link: "#" },
       { name: "Shin pads", link: "#" },
       { name: "Training bibs / kit bag", link: "#" }
+    ],
+    books: [
+      { name: "Football Association Coaching Book of Soccer Tactics and Skills — Charles Hughes", link: "#" }
     ]
   },
   {
@@ -38,6 +41,9 @@ const sports = [
       { name: "Swimsuit / jammers", link: "#" },
       { name: "Goggles", link: "#" },
       { name: "Swim cap", link: "#" }
+    ],
+    books: [
+      { name: "Total Immersion: The Revolutionary Way To Swim Better, Faster, and Easier", link: "#" }
     ]
   },
   {
@@ -58,6 +64,9 @@ const sports = [
       { name: "Golf clubs (starter set)", link: "#" },
       { name: "Golf shoes", link: "#" },
       { name: "Golf balls / gloves", link: "#" }
+    ],
+    books: [
+      { name: "Ben Hogan's Five Lessons: The Modern Fundamentals of Golf", link: "#" }
     ]
   },
   {
@@ -78,6 +87,9 @@ const sports = [
       { name: "Tennis racket", link: "#" },
       { name: "Tennis shoes", link: "#" },
       { name: "Balls", link: "#" }
+    ],
+    books: [
+      { name: "Tennis for Humans — Richard B. Myers", link: "#" }
     ]
   },
   {
@@ -98,6 +110,9 @@ const sports = [
       { name: "Badminton racket", link: "#" },
       { name: "Indoor court shoes", link: "#" },
       { name: "Shuttlecocks", link: "#" }
+    ],
+    books: [
+      { name: "Badminton: Technique, Tactics, Training — John Edwards", link: "#" }
     ]
   },
   {
@@ -118,6 +133,9 @@ const sports = [
       { name: "Netball", link: "#" },
       { name: "Netball trainers", link: "#" },
       { name: "Bib set", link: "#" }
+    ],
+    books: [
+      { name: "Netball (Know the Game) — All England Netball Association", link: "#" }
     ]
   },
   {
@@ -138,6 +156,9 @@ const sports = [
       { name: "Basketball shoes", link: "#" },
       { name: "Basketball", link: "#" },
       { name: "Compression gear", link: "#" }
+    ],
+    books: [
+      { name: "Basketball Skills & Drills — Jerry Krause", link: "#" }
     ]
   },
   {
@@ -158,6 +179,9 @@ const sports = [
       { name: "Cricket bat", link: "#" },
       { name: "Pads and gloves", link: "#" },
       { name: "Cricket bag", link: "#" }
+    ],
+    books: [
+      { name: "The MCC Cricket Coaching Book — Marylebone Cricket Club", link: "#" }
     ]
   },
   {
@@ -178,6 +202,9 @@ const sports = [
       { name: "Rugby boots", link: "#" },
       { name: "Gum shield", link: "#" },
       { name: "Training kit", link: "#" }
+    ],
+    books: [
+      { name: "The RFU Guide to Coaching Positional Skills — Rugby Football Union", link: "#" }
     ]
   },
   {
@@ -198,6 +225,9 @@ const sports = [
       { name: "Road or hybrid bike", link: "#" },
       { name: "Helmet", link: "#" },
       { name: "Padded shorts", link: "#" }
+    ],
+    books: [
+      { name: "Cyclecraft: Skilled Cycling Techniques for Adults", link: "#" }
     ]
   },
   {
@@ -218,6 +248,9 @@ const sports = [
       { name: "Running shoes", link: "#" },
       { name: "GPS running watch", link: "#" },
       { name: "Moisture-wicking kit", link: "#" }
+    ],
+    books: [
+      { name: "C25K: The Couch to 5K Beginner Running Program — Matthew C. Lee", link: "#" }
     ]
   },
   {
@@ -239,6 +272,9 @@ const sports = [
       { name: "Road/tri bike", link: "#" },
       { name: "Running shoes", link: "#" },
       { name: "Tri suit", link: "#" }
+    ],
+    books: [
+      { name: "Triathlon For Beginners — Dan Golding", link: "#" }
     ]
   },
   {
@@ -259,6 +295,9 @@ const sports = [
       { name: "Skateboard (complete)", link: "#" },
       { name: "Helmet and pads", link: "#" },
       { name: "Skate shoes", link: "#" }
+    ],
+    books: [
+      { name: "Skateboarding For Dummies — Daewon Song", link: "#" }
     ]
   },
   {
@@ -279,6 +318,9 @@ const sports = [
       { name: "Gi (kimono)", link: "#" },
       { name: "Rash guard", link: "#" },
       { name: "Mouthguard", link: "#" }
+    ],
+    books: [
+      { name: "Jiu-Jitsu University — Saulo Ribeiro", link: "#" }
     ]
   },
   {
@@ -299,6 +341,9 @@ const sports = [
       { name: "Squash racket", link: "#" },
       { name: "Squash shoes (non-marking soles)", link: "#" },
       { name: "Eye protection", link: "#" }
+    ],
+    books: [
+      { name: "Squash: Skills, Techniques, Tactics — Peter A. Hirst", link: "#" }
     ]
   },
   {
@@ -319,6 +364,9 @@ const sports = [
       { name: "Table tennis bat", link: "#" },
       { name: "Table tennis balls", link: "#" },
       { name: "Carry case", link: "#" }
+    ],
+    books: [
+      { name: "Table Tennis: Skills, Techniques, Tactics — Jenny Heaton", link: "#" }
     ]
   },
   {
@@ -339,6 +387,9 @@ const sports = [
       { name: "Boxing gloves", link: "#" },
       { name: "Hand wraps", link: "#" },
       { name: "Focus pads", link: "#" }
+    ],
+    books: [
+      { name: "The Complete Guide to Boxing Fitness — Hilary Lissenden", link: "#" }
     ]
   },
   {
@@ -359,6 +410,9 @@ const sports = [
       { name: "Hockey stick", link: "#" },
       { name: "Shin guards", link: "#" },
       { name: "Mouthguard", link: "#" }
+    ],
+    books: [
+      { name: "Hockey: Skills, Techniques, Tactics — Jane Powell", link: "#" }
     ]
   },
   {
@@ -379,6 +433,9 @@ const sports = [
       { name: "Climbing shoes", link: "#" },
       { name: "Chalk bag and chalk", link: "#" },
       { name: "Harness (for roped climbing)", link: "#" }
+    ],
+    books: [
+      { name: "The Indoor Climbing Manual — John White", link: "#" }
     ]
   },
   {
@@ -399,6 +456,9 @@ const sports = [
       { name: "Judo gi (kimono)", link: "#" },
       { name: "Belt", link: "#" },
       { name: "Mouthguard", link: "#" }
+    ],
+    books: [
+      { name: "The Techniques of Judo — Shinzo Takagaki", link: "#" }
     ]
   }
 ];

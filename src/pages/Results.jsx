@@ -74,6 +74,21 @@ export default function Results() {
               </li>
             ))}
           </ul>
+
+          <h3>Books to consider <span className="ad-badge">Ad</span></h3>
+          <p className="ad-disclosure">
+            These are affiliate links. If you buy through one, we may earn a small commission
+            at no extra cost to you.
+          </p>
+          <ul className="kit-list">
+            {sport.books.map((item) => (
+              <li key={item.name}>
+                <a href={item.link} target="_blank" rel="noopener noreferrer">
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
         </section>
       ))}
 
