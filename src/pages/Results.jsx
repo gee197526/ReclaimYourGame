@@ -26,7 +26,7 @@ export default function Results() {
       {selectedSports.map((sport) => (
         <section key={sport.id} className="sport-result">
           <h2 className="sport-result-heading">
-            <SportIcon sport={sport.id} size={22} />
+            <SportIcon sport={sport.id} size={34} />
             {sport.name}
           </h2>
           <p>{sport.synopsis}</p>
