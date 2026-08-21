@@ -61,8 +61,8 @@ function toCodePoint(char) {
 function SquashBallIcon({ size }) {
   return (
     <svg width={size} height={size} viewBox="0 0 36 36" aria-hidden="true">
-      <circle cx="18" cy="18" r="16" fill="#161616" stroke="#2b2b2b" strokeWidth="1" />
-      <circle cx="13" cy="11" r="3.2" fill="#e8ff2e" />
+      <circle cx="18" cy="18" r="16" fill="#3a3a3a" stroke="#9a9a92" strokeWidth="1.5" />
+      <circle cx="13" cy="11" r="3.4" fill="#e8ff2e" />
     </svg>
   );
 }
