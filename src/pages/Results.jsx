@@ -32,10 +32,18 @@ export default function Results() {
           <p>{sport.synopsis}</p>
 
           <h3>Why people loved it</h3>
-          <p>{sport.whyPeopleLovedIt}</p>
+          <ul className="detail-list">
+            {sport.whyPeopleLovedIt.map((point) => (
+              <li key={point}>{point}</li>
+            ))}
+          </ul>
 
           <h3>Getting back in</h3>
-          <p>{sport.gettingBack}</p>
+          <ul className="detail-list">
+            {sport.gettingBack.map((point) => (
+              <li key={point}>{point}</li>
+            ))}
+          </ul>
 
           <h3>Kit to consider <span className="ad-badge">Ad</span></h3>
           <p className="ad-disclosure">
