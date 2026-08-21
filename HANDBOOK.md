@@ -42,10 +42,11 @@ Claude.ai knowledge base (not duplicated here to avoid drift — see section 7).
 - Source control: GitHub
 - Contact form: Web3Forms (relay service, no backend, no stored data) — access key configured
 - No database, no backend server, no user accounts anywhere in the current build
-- Three hotlinked external assets (21 Aug 2026): Google Fonts (Space Grotesk + Inter), one
-  Unsplash photo (homepage hero), and Twemoji SVGs via jsDelivr (sport icons). All three are
-  free/no-auth CDN dependencies — if any of them go down or change URL structure, that specific
-  asset breaks but the rest of the site keeps working (no shared point of failure).
+- Hotlinked external assets (21 Aug 2026): Google Fonts (Space Grotesk + Inter), one Unsplash
+  photo (homepage hero), Twemoji SVGs via jsDelivr (sport icons), 20 Amazon product images (book
+  covers), and 20 more photos from Unsplash/Pexels (per-sport header images on the results page).
+  All are free/no-auth CDN dependencies — if any of them go down or change URL structure, that
+  specific asset breaks but the rest of the site keeps working (no shared point of failure).
 
 ## 4. Project structure
 
@@ -272,3 +273,21 @@ each time, never saved.
   Build and lint clean before pushing. Verified live: Books section renders correctly with proper
   Ad badge/disclosure, matching Kit's styling exactly; data validated programmatically for all 20
   sports before pushing. Pushed and live.
+- **21 August 2026** — Added real photography: a book cover thumbnail next to each of the 20 book
+  links, and a header photo on every sport's results card. Both sourced live via Chrome rather
+  than invented, to keep the "don't hallucinate" rule intact:
+  - Book covers: each Amazon.co.uk product page was opened and the real cover image URL extracted
+    directly from the page's product image element, confirming the page title matched the correct
+    book before accepting the image. All 20 point to genuine `m.media-amazon.com` product images.
+  - Sport photos: sourced from Unsplash and (for judo) Pexels, both free-to-use libraries. Every
+    candidate was screenshotted and visually checked against the sport before use, since search
+    results are sometimes mistagged — caught and rejected a "squash" result that was actually
+    tennis, and several "judo" results that were karate/taekwondo kicks (judo has no kicks). Final
+    judo photo is a genuine groundwork shot on a judo mat, sourced from Pexels.
+  - `sports.js` gained two new fields: `photo` (per sport) and `cover` (per book). `Results.jsx`
+    renders the sport photo as a full-bleed image at the top of each card, and the book cover as a
+    40×56px thumbnail next to its link. New CSS added for `.sport-result-photo`, `.book-list`, and
+    `.book-cover` in `App.css`.
+  - Build and lint clean before pushing. Verified live: stepped through the quiz end-to-end,
+    confirmed the football photo, football book cover, judo photo, and squash book cover all
+    render correctly on the deployed site. Pushed and live.
