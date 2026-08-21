@@ -30,16 +30,11 @@ export default function Results() {
       {selectedGoals.length > 0 && (
         <section className="results-cta goals-card">
           <h3>Your goals</h3>
-          {selectedGoals.map((goal) => (
-            <div key={goal.id} className="goal-block">
-              <p className="goal-label">{goal.label}</p>
-              <ul className="detail-list">
-                {goal.bullets.map((point) => (
-                  <li key={point}>{point}</li>
-                ))}
-              </ul>
-            </div>
-          ))}
+          <ul className="detail-list">
+            {selectedGoals.flatMap((goal) => goal.bullets).map((point) => (
+              <li key={point}>{point}</li>
+            ))}
+          </ul>
         </section>
       )}
 
