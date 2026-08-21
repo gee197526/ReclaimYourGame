@@ -227,3 +227,11 @@ each time, never saved.
   - Build and lint (`oxlint`) both clean before pushing. Verified live: hero image, all 14 Twemoji
     icons, new fonts, and card styling all confirmed rendering correctly on the deployed site.
     Pushed and live.
+- **21 August 2026** — "What's your goal?" changed from single-select to multi-select (`goal` is
+  now an array in quiz state, same `toggleInArray` pattern already used for sports and "what's
+  holding you back"). Added a positive payoff on the results page: a "Your goals" card with
+  encouraging bullets, written per goal (`goalOptions` in `quizOptions.js` now carries a
+  `bullets` array per option) and combined into one flat amalgamated list rather than grouped
+  under separate goal headings, per explicit steer — avoids it reading as four separate generic
+  blocks. Intro line now joins multiple goal labels ("Goal: get fit, meet people."). Build and
+  lint clean before pushing. Verified live with two goals selected. Pushed and live.
