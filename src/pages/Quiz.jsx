@@ -17,7 +17,7 @@ export default function Quiz() {
     lastPlayed: "",
     holdingBack: [],
     postcode: "",
-    goal: ""
+    goal: []
   });
 
   const toggleInArray = (key, id) => {
@@ -77,7 +77,7 @@ export default function Quiz() {
       {step === 5 && (
         <GoalStep
           selected={answers.goal}
-          onSelect={(id) => setField("goal", id)}
+          onToggle={(id) => toggleInArray("goal", id)}
           onSubmit={submit}
           onBack={back}
         />

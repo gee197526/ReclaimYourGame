@@ -15,7 +15,8 @@ export default function Results() {
   const selectedSports = sports.filter((s) => answers.sports.includes(s.id));
   const isFirstTimer = answers.lastPlayed === "never";
   const lastPlayedLabel = lastPlayedOptions.find((o) => o.id === answers.lastPlayed)?.label;
-  const goalLabel = goalOptions.find((o) => o.id === answers.goal)?.label;
+  const selectedGoals = goalOptions.filter((o) => answers.goal.includes(o.id));
+  const goalText = selectedGoals.map((g) => g.label.toLowerCase()).join(", ");
 
   return (
     <div className="results-container">
@@ -23,8 +24,24 @@ export default function Results() {
       <p className="results-intro">
         {isFirstTimer
           ? "Trying it for the first time."
-          : `Last played ${lastPlayedLabel?.toLowerCase()}.`} Goal: {goalLabel?.toLowerCase()}.
+          : `Last played ${lastPlayedLabel?.toLowerCase()}.`} Goal: {goalText}.
       </p>
+
+      {selectedGoals.length > 0 && (
+        <section className="results-cta goals-card">
+          <h3>Your goals</h3>
+          {selectedGoals.map((goal) => (
+            <div key={goal.id} className="goal-block">
+              <p className="goal-label">{goal.label}</p>
+              <ul className="detail-list">
+                {goal.bullets.map((point) => (
+                  <li key={point}>{point}</li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </section>
+      )}
 
       {selectedSports.map((sport) => (
         <section key={sport.id} className="sport-result">
