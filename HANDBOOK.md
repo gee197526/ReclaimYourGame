@@ -172,3 +172,9 @@ each time, never saved.
   policy already contains the required "As an Amazon Associate, we earn from qualifying
   purchases" line, the affiliate disclosure badge is in place on the results page, and the
   postcode field is confirmed client-side only. Pushed and live.
+- **21 August 2026** — Results page redesign: "Why people loved it" and "Getting back in" changed
+  from single sentences to 3-bullet lists for all 14 sports, with dot-marker styling matching the
+  site theme (`.detail-list` in `App.css`). Content expands on what was already there rather than
+  introducing new specific claims — existing facts (e.g. named programmes/venues) were split out,
+  plus generic practical advice bullets (timelines, mixed-ability reassurance) were added.
+  Build tested clean locally before pushing. Pushed and live.
