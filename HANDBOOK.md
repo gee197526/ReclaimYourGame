@@ -53,7 +53,7 @@ Claude.ai knowledge base (not duplicated here to avoid drift — see section 7).
 reclaimyourgame/
   src/
     data/
-      sports.js        14 sports' content (synopsis, tips, kit list)
+      sports.js        20 sports' content (synopsis, tips, kit list)
       quizOptions.js    answer options for steps 2, 3, 5
     pages/
       Quiz.jsx          5-step quiz, holds answer state
@@ -235,3 +235,17 @@ each time, never saved.
   under separate goal headings, per explicit steer — avoids it reading as four separate generic
   blocks. Intro line now joins multiple goal labels ("Goal: get fit, meet people."). Build and
   lint clean before pushing. Verified live with two goals selected. Pushed and live.
+- **21 August 2026** — Added 6 new sports (14 → 20 total): Squash, Table Tennis, Boxing, Hockey,
+  Climbing, Judo. Chosen by affiliate/kit value and realistic UK adult participation, using each
+  sport's actual national governing body where referenced (England Squash, Table Tennis England,
+  England Boxing, England Hockey, British Judo). Considered switching the sport-picker from a
+  visual grid to an alphabetical dropdown at this larger count — recommended against it, since
+  the visual grid with icons is part of what makes this feel like an engaging quiz rather than a
+  form, matching the original concept brief. Kept the grid; would only revisit at 30+ sports.
+  Icon notes: Table Tennis, Boxing, Hockey, and Climbing all have exact-match Twemoji glyphs.
+  Judo has no dedicated emoji, so it uses the wrestling glyph (kept visually distinct from BJJ's
+  gi icon). Squash has no dedicated emoji at all — rejected the nearest Unicode substitute
+  (softball) since it reads as a different, US-coded sport rather than a generic ball, so it gets
+  a small custom inline SVG instead (black ball, yellow dot — the real look of a squash ball).
+  Build and lint clean before pushing. Verified live: all 20 tiles render with correct icons,
+  spot-checked one new sport's full results content (Boxing). Pushed and live.
