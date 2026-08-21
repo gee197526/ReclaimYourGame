@@ -4,9 +4,14 @@ import SportIcon from "../SportIcon";
 export default function SportSelectStep({ selected, onToggle, onNext }) {
   return (
     <div className="step">
-      <p className="step-intro">
-        Reclaiming your game, or claiming it for the first time? Either way, we'll help you get started.
-      </p>
+      <div className="hero-banner" role="img" aria-label="Players on a floodlit pitch at night">
+        <div className="hero-banner-overlay">
+          <p className="hero-banner-text">
+            Reclaiming your game, or claiming it for the first time? Either way, we'll help you
+            get started.
+          </p>
+        </div>
+      </div>
       <h2>What sport did you play?</h2>
       <p className="step-subtitle">Pick as many as apply.</p>
       <div className="sport-grid">
