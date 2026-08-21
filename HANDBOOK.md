@@ -4,7 +4,7 @@ Living reference for the whole project: what it is, what's been built, every ser
 involved, and what's still open. Written so someone new could pick this up and understand the
 full state of play. Updated automatically, most recent entries at the bottom of the changelog.
 
-Last updated: 12 August 2026
+Last updated: 21 August 2026
 
 ---
 
@@ -23,6 +23,9 @@ Claude.ai knowledge base (not duplicated here to avoid drift — see section 7).
 - App is live at **https://reclaimyourgame.co.uk** (also reachable at
   reclaim-your-game.vercel.app)
 - Custom domain DNS connected and verified (12 Aug 2026)
+- Fixed a routing bug (21 Aug 2026): direct links to any non-home page (e.g. `/privacy`,
+  `/contact`) returned a 404 on Vercel — no rewrite rule for the React Router SPA. Added
+  `vercel.json`. Confirmed fixed.
 - Code is on GitHub: **github.com/gee197526/ReclaimYourGame**, branch `main`
 - Hosting: Vercel, auto-deploys on push to `main`
 - No affiliate programmes joined yet — kit links are placeholders
@@ -160,3 +163,12 @@ each time, never saved.
   phones) and added a header tagline ("Getting back to your healthier self!") in bold yellow,
   right-aligned on desktop and wrapping full-width on mobile, to balance the header layout.
   Pushed and live.
+- **21 August 2026** — Reviewed the live site ahead of applying to Amazon Associates. Found and
+  fixed a bug: direct navigation to any route other than the homepage (e.g. `reclaimyourgame.co.uk/privacy`)
+  returned a raw Vercel 404, because there was no rewrite rule to fall back to `index.html` for
+  the React Router SPA. Added `vercel.json` with a catch-all rewrite. Verified `/privacy` and
+  `/contact` now load correctly on direct navigation and on refresh. This was blocking, since
+  Amazon Associates checks the privacy policy URL directly. Everything else checked out: privacy
+  policy already contains the required "As an Amazon Associate, we earn from qualifying
+  purchases" line, the affiliate disclosure badge is in place on the results page, and the
+  postcode field is confirmed client-side only. Pushed and live.
