@@ -40,6 +40,14 @@ export default function Results() {
 
       {selectedSports.map((sport) => (
         <section key={sport.id} className="sport-result">
+          {sport.photo && (
+            <img
+              src={sport.photo}
+              alt={sport.name}
+              className="sport-result-photo"
+              loading="lazy"
+            />
+          )}
           <h2 className="sport-result-heading">
             <SportIcon sport={sport.id} size={34} />
             {sport.name}
@@ -80,11 +88,14 @@ export default function Results() {
             These are affiliate links. If you buy through one, we may earn a small commission
             at no extra cost to you.
           </p>
-          <ul className="kit-list">
+          <ul className="book-list">
             {sport.books.map((item) => (
               <li key={item.name}>
                 <a href={item.link} target="_blank" rel="noopener noreferrer">
-                  {item.name}
+                  {item.cover && (
+                    <img src={item.cover} alt="" className="book-cover" loading="lazy" />
+                  )}
+                  <span>{item.name}</span>
                 </a>
               </li>
             ))}

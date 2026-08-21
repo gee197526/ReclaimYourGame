@@ -270,6 +270,18 @@ a { color: var(--accent); }
   margin-bottom: 1.25rem;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
   animation: card-in 0.4s ease both;
+  overflow: hidden;
+}
+.sport-result-photo {
+  display: block;
+  width: calc(100% + 3rem);
+  margin: -1.5rem -1.5rem 1.25rem;
+  height: 180px;
+  object-fit: cover;
+  border-bottom: 1px solid var(--border);
+}
+@media (min-width: 640px) {
+  .sport-result-photo { height: 240px; }
 }
 @keyframes card-in {
   from { opacity: 0; transform: translateY(10px); }
@@ -317,6 +329,28 @@ a { color: var(--accent); }
   transition: border-color var(--transition);
 }
 .kit-list a:hover { border-bottom-color: var(--accent); }
+
+.book-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.65rem; }
+.book-list a {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--transition);
+  padding-bottom: 0.35rem;
+}
+.book-list a:hover { border-bottom-color: var(--accent); }
+.book-cover {
+  width: 40px;
+  height: 56px;
+  object-fit: cover;
+  border-radius: 3px;
+  border: 1px solid var(--border);
+  flex-shrink: 0;
+  background: var(--surface);
+}
 
 .results-cta {
   background: linear-gradient(160deg, var(--surface-alt) 0%, var(--surface) 55%);

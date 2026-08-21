@@ -4,6 +4,7 @@ const sports = [
     id: "football",
     name: "Football",
     synopsis: "Five-a-side, Sunday league, or just a kickabout — football is the easiest sport to drop back into because it's played everywhere, at every level.",
+    photo: "https://images.unsplash.com/photo-1486286701208-1d58e9338013?w=800&q=80&auto=format&fit=crop",
     whyPeopleLovedIt: [
       "The team spirit and banter",
       "Getting a proper workout without needing to plan a session — you just turn up",
@@ -20,13 +21,14 @@ const sports = [
       { name: "Training bibs / kit bag", link: "#" }
     ],
     books: [
-      { name: "Football Association Coaching Book of Soccer Tactics and Skills — Charles Hughes", link: "#" }
+      { name: "Football Association Coaching Book of Soccer Tactics and Skills — Charles Hughes", link: "#" , cover: "https://m.media-amazon.com/images/I/91c95WmjHZL._AC_UY320_.jpg" }
     ]
   },
   {
     id: "swimming",
     name: "Swimming",
     synopsis: "Low impact, easy on ageing joints, and every local leisure centre has a pool. One of the simplest sports to pick back up at any fitness level.",
+    photo: "https://images.unsplash.com/photo-1596935888945-cbcd60670faf?w=800&q=80&auto=format&fit=crop",
     whyPeopleLovedIt: [
       "The headspace and calm of lane swimming",
       "Getting fit without pounding your joints",
@@ -43,13 +45,14 @@ const sports = [
       { name: "Swim cap", link: "#" }
     ],
     books: [
-      { name: "Total Immersion: The Revolutionary Way To Swim Better, Faster, and Easier", link: "#" }
+      { name: "Total Immersion: The Revolutionary Way To Swim Better, Faster, and Easier", link: "#" , cover: "https://m.media-amazon.com/images/I/91uUa9tvi6L._AC_UY320_.jpg" }
     ]
   },
   {
     id: "golf",
     name: "Golf",
     synopsis: "A sport you genuinely play for life. Coming back after a break is mostly about knocking the rust off your swing and finding a club that suits your pace.",
+    photo: "https://images.unsplash.com/photo-1592937238247-cd0090e02f65?w=800&q=80&auto=format&fit=crop",
     whyPeopleLovedIt: [
       "The walk and time outdoors",
       "The competitiveness against yourself, not just others",
@@ -66,13 +69,14 @@ const sports = [
       { name: "Golf balls / gloves", link: "#" }
     ],
     books: [
-      { name: "Ben Hogan's Five Lessons: The Modern Fundamentals of Golf", link: "#" }
+      { name: "Ben Hogan's Five Lessons: The Modern Fundamentals of Golf", link: "#" , cover: "https://m.media-amazon.com/images/I/71Y7RC8DqlL._AC_UY320_.jpg" }
     ]
   },
   {
     id: "tennis",
     name: "Tennis",
     synopsis: "Accessible, sociable, and easy to find a game — parks, clubs, and the LTA's venue finder make tennis one of the simpler comebacks.",
+    photo: "https://images.unsplash.com/photo-1545151414-8a948e1ea54f?w=800&q=80&auto=format&fit=crop",
     whyPeopleLovedIt: [
       "The rallying and quick bursts of intensity",
       "The social side of club tennis",
@@ -89,13 +93,14 @@ const sports = [
       { name: "Balls", link: "#" }
     ],
     books: [
-      { name: "Tennis for Humans — Richard B. Myers", link: "#" }
+      { name: "Tennis for Humans — Richard B. Myers", link: "#" , cover: "https://m.media-amazon.com/images/I/210D8wcjWvL._AC_UY320_.jpg" }
     ]
   },
   {
     id: "badminton",
     name: "Badminton",
     synopsis: "Fast, cheap, and available at almost every local sports hall — badminton is one of the quickest sports to get back into this week.",
+    photo: "https://images.unsplash.com/photo-1722087642932-9b070e9a066e?w=800&q=80&auto=format&fit=crop",
     whyPeopleLovedIt: [
       "The speed and reflexes",
       "How cheap and easy it is to organise with friends",
@@ -112,13 +117,14 @@ const sports = [
       { name: "Shuttlecocks", link: "#" }
     ],
     books: [
-      { name: "Badminton: Technique, Tactics, Training — John Edwards", link: "#" }
+      { name: "Badminton: Technique, Tactics, Training — John Edwards", link: "#" , cover: "https://m.media-amazon.com/images/I/81KSxLafCmL._AC_UY320_.jpg" }
     ]
   },
   {
     id: "netball",
     name: "Netball",
     synopsis: "England Netball's Back to Netball programme was built exactly for this — structured, social sessions for people returning after time away.",
+    photo: "https://images.unsplash.com/photo-1717398151457-3e196b0ccb09?w=800&q=80&auto=format&fit=crop",
     whyPeopleLovedIt: [
       "The team dynamic and fast pace",
       "Friendships built on court",
@@ -135,13 +141,14 @@ const sports = [
       { name: "Bib set", link: "#" }
     ],
     books: [
-      { name: "Netball (Know the Game) — All England Netball Association", link: "#" }
+      { name: "Netball (Know the Game) — All England Netball Association", link: "#" , cover: "https://m.media-amazon.com/images/I/81F8eMIrGNL._AC_UY320_.jpg" }
     ]
   },
   {
     id: "basketball",
     name: "Basketball",
     synopsis: "Pick-up games and local leagues make basketball easy to rejoin — the challenge is usually cardio fitness more than skill loss.",
+    photo: "https://images.unsplash.com/photo-1546519638-68e109498ffc?w=800&q=80&auto=format&fit=crop",
     whyPeopleLovedIt: [
       "The intensity and athleticism",
       "The team play and reading the game",
@@ -158,13 +165,14 @@ const sports = [
       { name: "Compression gear", link: "#" }
     ],
     books: [
-      { name: "Basketball Skills & Drills — Jerry Krause", link: "#" }
+      { name: "Basketball Skills & Drills — Jerry Krause", link: "#" , cover: "https://m.media-amazon.com/images/I/711QyxHeNDL._AC_UY320_.jpg" }
     ]
   },
   {
     id: "cricket",
     name: "Cricket",
     synopsis: "From village greens to indoor nets, cricket has more entry points than people realise — including shorter formats built for casual players.",
+    photo: "https://images.unsplash.com/photo-1512719994953-eabf50895df7?w=800&q=80&auto=format&fit=crop",
     whyPeopleLovedIt: [
       "The tradition and long summer days",
       "The team camaraderie between overs",
@@ -181,13 +189,14 @@ const sports = [
       { name: "Cricket bag", link: "#" }
     ],
     books: [
-      { name: "The MCC Cricket Coaching Book — Marylebone Cricket Club", link: "#" }
+      { name: "The MCC Cricket Coaching Book — Marylebone Cricket Club", link: "#" , cover: "https://m.media-amazon.com/images/I/61DzTR-6FFL._AC_UY320_.jpg" }
     ]
   },
   {
     id: "rugby-union",
     name: "Rugby Union",
     synopsis: "Contact sport comebacks need a bit more care — conditioning first, then contact. Many clubs run non-contact touch or golden oldies sessions for returners.",
+    photo: "https://images.unsplash.com/photo-1529663297269-6d349ec39b57?w=800&q=80&auto=format&fit=crop",
     whyPeopleLovedIt: [
       "The physicality and club culture",
       "Mates made through the sport",
@@ -204,13 +213,14 @@ const sports = [
       { name: "Training kit", link: "#" }
     ],
     books: [
-      { name: "The RFU Guide to Coaching Positional Skills — Rugby Football Union", link: "#" }
+      { name: "The RFU Guide to Coaching Positional Skills — Rugby Football Union", link: "#" , cover: "https://m.media-amazon.com/images/I/81BM0sb+WuL._AC_UY320_.jpg" }
     ]
   },
   {
     id: "cycling",
     name: "Cycling",
     synopsis: "Whether it's commuting, road, or off-road, cycling scales to whatever fitness level you're starting from — and the kit lasts for years.",
+    photo: "https://images.unsplash.com/photo-1541625602330-2277a4c46182?w=800&q=80&auto=format&fit=crop",
     whyPeopleLovedIt: [
       "The freedom of the open road",
       "Exploring new routes",
@@ -227,13 +237,14 @@ const sports = [
       { name: "Padded shorts", link: "#" }
     ],
     books: [
-      { name: "Cyclecraft: Skilled Cycling Techniques for Adults", link: "#" }
+      { name: "Cyclecraft: Skilled Cycling Techniques for Adults", link: "#" , cover: "https://m.media-amazon.com/images/I/51fpwcq4JpL._AC_UY320_.jpg" }
     ]
   },
   {
     id: "running",
     name: "Running",
     synopsis: "The lowest barrier to entry of any sport on this list — a pair of shoes and a plan. Couch to 5K remains the standard route back in.",
+    photo: "https://images.unsplash.com/photo-1602263515015-dd72f8e9f301?w=800&q=80&auto=format&fit=crop",
     whyPeopleLovedIt: [
       "The simplicity — just shoes and a plan",
       "The mental clarity a run gives you",
@@ -250,13 +261,14 @@ const sports = [
       { name: "Moisture-wicking kit", link: "#" }
     ],
     books: [
-      { name: "C25K: The Couch to 5K Beginner Running Program — Matthew C. Lee", link: "#" }
+      { name: "C25K: The Couch to 5K Beginner Running Program — Matthew C. Lee", link: "#" , cover: "https://m.media-amazon.com/images/I/61tlI2wKf3L._AC_UY320_.jpg" }
     ]
   },
   {
     id: "triathlon",
     name: "Triathlon",
     synopsis: "The most gear-intensive comeback on this list — swim, bike, and run each need their own kit, which makes triathlon the highest-value return for retailers too.",
+    photo: "https://images.unsplash.com/photo-1658748721978-68fc04f3739b?w=800&q=80&auto=format&fit=crop",
     whyPeopleLovedIt: [
       "The variety of training across three disciplines",
       "The achievement of finishing",
@@ -274,13 +286,14 @@ const sports = [
       { name: "Tri suit", link: "#" }
     ],
     books: [
-      { name: "Triathlon For Beginners — Dan Golding", link: "#" }
+      { name: "Triathlon For Beginners — Dan Golding", link: "#" , cover: "https://m.media-amazon.com/images/I/71iL9tux-zL._AC_UY320_.jpg" }
     ]
   },
   {
     id: "skateboarding",
     name: "Skateboarding",
     synopsis: "Skateparks have never been more common, and the culture is more welcoming to older returners than it used to be. Balance and confidence come back faster than people expect.",
+    photo: "https://images.unsplash.com/photo-1522602398-e378288fe36d?w=800&q=80&auto=format&fit=crop",
     whyPeopleLovedIt: [
       "The creativity and individual progress",
       "The community at the skatepark",
@@ -297,13 +310,14 @@ const sports = [
       { name: "Skate shoes", link: "#" }
     ],
     books: [
-      { name: "Skateboarding For Dummies — Daewon Song", link: "#" }
+      { name: "Skateboarding For Dummies — Daewon Song", link: "#" , cover: "https://m.media-amazon.com/images/I/71Gm7CPbXjL._AC_UY320_.jpg" }
     ]
   },
   {
     id: "bjj",
     name: "BJJ (Brazilian Jiu-Jitsu)",
     synopsis: "A steep but rewarding sport to return to — most gyms welcome returning white/blue belts and will happily let you rebuild at your own pace.",
+    photo: "https://images.unsplash.com/photo-1564415315949-7a0c4c73aab4?w=800&q=80&auto=format&fit=crop",
     whyPeopleLovedIt: [
       "The problem-solving nature of the sport",
       "The discipline it builds",
@@ -320,13 +334,14 @@ const sports = [
       { name: "Mouthguard", link: "#" }
     ],
     books: [
-      { name: "Jiu-Jitsu University — Saulo Ribeiro", link: "#" }
+      { name: "Jiu-Jitsu University — Saulo Ribeiro", link: "#" , cover: "https://m.media-amazon.com/images/I/81ax1GtjCRL._AC_UY320_.jpg" }
     ]
   },
   {
     id: "squash",
     name: "Squash",
     synopsis: "One of the fastest, most intense racket sports there is — a match is over in well under an hour, which makes it easy to fit back into a busy week.",
+    photo: "https://images.unsplash.com/photo-1694723844104-a1495e30c7b0?w=800&q=80&auto=format&fit=crop",
     whyPeopleLovedIt: [
       "The intensity, and a match being over in 30-45 minutes",
       "The satisfaction of a well-placed shot into the corner",
@@ -343,13 +358,14 @@ const sports = [
       { name: "Eye protection", link: "#" }
     ],
     books: [
-      { name: "Squash: Skills, Techniques, Tactics — Peter A. Hirst", link: "#" }
+      { name: "Squash: Skills, Techniques, Tactics — Peter A. Hirst", link: "#" , cover: "https://m.media-amazon.com/images/I/81pZEZzmLzL._AC_UY320_.jpg" }
     ]
   },
   {
     id: "table-tennis",
     name: "Table Tennis",
     synopsis: "Cheap, indoor, and available at community centres and clubs everywhere — table tennis is one of the easiest sports to pick up again at any age or fitness level.",
+    photo: "https://images.unsplash.com/photo-1676827613262-5fba25cee5fd?w=800&q=80&auto=format&fit=crop",
     whyPeopleLovedIt: [
       "The quick reflexes and the satisfaction of a good rally",
       "How social and low-pressure club nights are",
@@ -366,13 +382,14 @@ const sports = [
       { name: "Carry case", link: "#" }
     ],
     books: [
-      { name: "Table Tennis: Skills, Techniques, Tactics — Jenny Heaton", link: "#" }
+      { name: "Table Tennis: Skills, Techniques, Tactics — Jenny Heaton", link: "#" , cover: "https://m.media-amazon.com/images/I/71rHbZvmpUL._AC_UY320_.jpg" }
     ]
   },
   {
     id: "boxing",
     name: "Boxing",
     synopsis: "One of the most complete workouts in sport, and increasingly popular as a fitness comeback in its own right — most gyms cater for people rebuilding fitness, not just competing.",
+    photo: "https://images.unsplash.com/photo-1716307043003-dbe6a5cc496e?w=800&q=80&auto=format&fit=crop",
     whyPeopleLovedIt: [
       "The discipline and structure of training",
       "How much of a full-body workout it is",
@@ -389,13 +406,14 @@ const sports = [
       { name: "Focus pads", link: "#" }
     ],
     books: [
-      { name: "The Complete Guide to Boxing Fitness — Hilary Lissenden", link: "#" }
+      { name: "The Complete Guide to Boxing Fitness — Hilary Lissenden", link: "#" , cover: "https://m.media-amazon.com/images/I/71wuUglg1UL._AC_UY320_.jpg" }
     ]
   },
   {
     id: "hockey",
     name: "Hockey",
     synopsis: "A fast, team-based sport that rewards fitness and stick skills in equal measure — most clubs are well used to welcoming adults back after time away.",
+    photo: "https://images.unsplash.com/photo-1554539484-e4fab56d4a5c?w=800&q=80&auto=format&fit=crop",
     whyPeopleLovedIt: [
       "The pace of the game and the teamwork",
       "The club social scene, on and off the pitch",
@@ -412,13 +430,14 @@ const sports = [
       { name: "Mouthguard", link: "#" }
     ],
     books: [
-      { name: "Hockey: Skills, Techniques, Tactics — Jane Powell", link: "#" }
+      { name: "Hockey: Skills, Techniques, Tactics — Jane Powell", link: "#" , cover: "https://m.media-amazon.com/images/I/810h3PV3UeL._AC_UY320_.jpg" }
     ]
   },
   {
     id: "climbing",
     name: "Climbing",
     synopsis: "Indoor climbing walls have made this one of the most accessible comebacks on this list — no partner or club needed to get started, and bouldering venues are in most UK cities now.",
+    photo: "https://images.unsplash.com/photo-1564769662533-4f00a87b4056?w=800&q=80&auto=format&fit=crop",
     whyPeopleLovedIt: [
       "The problem-solving of working out a route",
       "The mix of strength, technique, and mental focus",
@@ -435,13 +454,14 @@ const sports = [
       { name: "Harness (for roped climbing)", link: "#" }
     ],
     books: [
-      { name: "The Indoor Climbing Manual — John White", link: "#" }
+      { name: "The Indoor Climbing Manual — John White", link: "#" , cover: "https://m.media-amazon.com/images/I/811fBTXz7eL._AC_UY320_.jpg" }
     ]
   },
   {
     id: "judo",
     name: "Judo",
     synopsis: "One of the UK's most established martial arts, with a strong adult and masters scene — most clubs are set up for people returning after a break, not just complete beginners.",
+    photo: "https://images.pexels.com/photos/6253172/pexels-photo-6253172.jpeg?w=800&auto=compress&cs=tinysrgb",
     whyPeopleLovedIt: [
       "The technical depth and the satisfaction of a well-executed throw",
       "The discipline and etiquette of the dojo",
@@ -458,7 +478,7 @@ const sports = [
       { name: "Mouthguard", link: "#" }
     ],
     books: [
-      { name: "The Techniques of Judo — Shinzo Takagaki", link: "#" }
+      { name: "The Techniques of Judo — Shinzo Takagaki", link: "#" , cover: "https://m.media-amazon.com/images/I/41R550nKqQL._AC_UY320_.jpg" }
     ]
   }
 ];
