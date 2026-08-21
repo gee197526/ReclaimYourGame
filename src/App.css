@@ -113,6 +113,7 @@ a { color: var(--accent); }
 
 .step h2 { margin-top: 0; color: var(--text); }
 .step-subtitle { color: var(--muted); margin-top: -0.5rem; }
+.step-intro { color: var(--accent); font-weight: 600; font-size: 0.95rem; margin-top: 0; margin-bottom: 1.25rem; }
 
 .sport-grid {
   display: grid;

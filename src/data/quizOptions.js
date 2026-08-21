@@ -1,4 +1,5 @@
 export const lastPlayedOptions = [
+  { id: "never", label: "Never played — I want to try it" },
   { id: "under1", label: "Less than a year ago" },
   { id: "1to5", label: "1–5 years ago" },
   { id: "5to10", label: "5–10 years ago" },

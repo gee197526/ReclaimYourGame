@@ -13,14 +13,17 @@ export default function Results() {
   }
 
   const selectedSports = sports.filter((s) => answers.sports.includes(s.id));
+  const isFirstTimer = answers.lastPlayed === "never";
   const lastPlayedLabel = lastPlayedOptions.find((o) => o.id === answers.lastPlayed)?.label;
   const goalLabel = goalOptions.find((o) => o.id === answers.goal)?.label;
 
   return (
     <div className="results-container">
-      <h1>Your comeback plan</h1>
+      <h1>Your game plan</h1>
       <p className="results-intro">
-        Last played {lastPlayedLabel?.toLowerCase()}. Goal: {goalLabel?.toLowerCase()}.
+        {isFirstTimer
+          ? "Trying it for the first time."
+          : `Last played ${lastPlayedLabel?.toLowerCase()}.`} Goal: {goalLabel?.toLowerCase()}.
       </p>
 
       {selectedSports.map((sport) => (
@@ -31,14 +34,14 @@ export default function Results() {
           </h2>
           <p>{sport.synopsis}</p>
 
-          <h3>Why people loved it</h3>
+          <h3>Why people love it</h3>
           <ul className="detail-list">
             {sport.whyPeopleLovedIt.map((point) => (
               <li key={point}>{point}</li>
             ))}
           </ul>
 
-          <h3>Getting back in</h3>
+          <h3>{isFirstTimer ? "Getting started" : "Getting back in"}</h3>
           <ul className="detail-list">
             {sport.gettingBack.map((point) => (
               <li key={point}>{point}</li>
