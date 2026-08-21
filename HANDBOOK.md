@@ -178,3 +178,7 @@ each time, never saved.
   introducing new specific claims — existing facts (e.g. named programmes/venues) were split out,
   plus generic practical advice bullets (timelines, mixed-ability reassurance) were added.
   Build tested clean locally before pushing. Pushed and live.
+- **21 August 2026** — Made results page section headers ("Why people loved it", "Getting back
+  in", "Kit to consider") clearer: was small grey uppercase text, now sentence case, larger,
+  bold, accent yellow, with a divider line above each section. Build tested clean before pushing.
+  Pushed and live.
