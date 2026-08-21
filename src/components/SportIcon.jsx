@@ -1,7 +1,13 @@
 // Standard emoji per sport. A couple of sports have no dedicated Unicode
-// emoji (netball, rugby union's actual ball shape), so those use the
-// closest common substitute. Triathlon uses three separate emoji in
-// sequence rather than one glyph.
+// emoji (netball, rugby union's actual ball shape, judo), so those use the
+// closest common substitute — judo uses the wrestling glyph rather than
+// reusing BJJ's gi, to keep the two visually distinct. Triathlon uses
+// three separate emoji in sequence rather than one glyph.
+//
+// Squash has no Unicode emoji at all, and the nearest substitutes either
+// duplicate another sport's icon or read as the wrong (US) sport, so it
+// gets its own small SVG below instead — a black ball with a yellow dot,
+// the classic look of a real squash ball.
 //
 // Rendered as Twemoji SVGs (via jsDelivr) rather than raw emoji characters,
 // so every sport icon looks identical across every OS/browser instead of
@@ -21,6 +27,11 @@ const icons = {
   triathlon: ["🏊", "🚴", "🏃"],
   skateboarding: ["🛹"],
   bjj: ["🥋"],
+  "table-tennis": ["🏓"],
+  boxing: ["🥊"],
+  hockey: ["🏑"],
+  climbing: ["🧗"],
+  judo: ["🤼"],
 };
 
 const TWEMOJI_BASE = "https://cdn.jsdelivr.net/gh/jdecked/twemoji@latest/assets/svg/";
@@ -47,7 +58,24 @@ function toCodePoint(char) {
   return points.join("-");
 }
 
+function SquashBallIcon({ size }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 36 36" aria-hidden="true">
+      <circle cx="18" cy="18" r="16" fill="#161616" stroke="#2b2b2b" strokeWidth="1" />
+      <circle cx="13" cy="11" r="3.2" fill="#e8ff2e" />
+    </svg>
+  );
+}
+
 export default function SportIcon({ sport, size = 20, className }) {
+  if (sport === "squash") {
+    return (
+      <span className={className} style={{ display: "inline-flex" }} aria-hidden="true">
+        <SquashBallIcon size={size} />
+      </span>
+    );
+  }
+
   const chars = icons[sport];
   if (!chars) return null;
   return (

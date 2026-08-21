@@ -280,6 +280,126 @@ const sports = [
       { name: "Rash guard", link: "#" },
       { name: "Mouthguard", link: "#" }
     ]
+  },
+  {
+    id: "squash",
+    name: "Squash",
+    synopsis: "One of the fastest, most intense racket sports there is — a match is over in well under an hour, which makes it easy to fit back into a busy week.",
+    whyPeopleLovedIt: [
+      "The intensity, and a match being over in 30-45 minutes",
+      "The satisfaction of a well-placed shot into the corner",
+      "How much of a workout you get without needing hours of free time"
+    ],
+    gettingBack: [
+      "England Squash's club finder lists venues offering pay-and-play courts and beginner-friendly leagues",
+      "Most clubs run graded ladders, so you're matched against players of a similar level rather than thrown in against regulars",
+      "Expect your legs to feel it before your racket skills do — squash fitness is its own thing"
+    ],
+    kit: [
+      { name: "Squash racket", link: "#" },
+      { name: "Squash shoes (non-marking soles)", link: "#" },
+      { name: "Eye protection", link: "#" }
+    ]
+  },
+  {
+    id: "table-tennis",
+    name: "Table Tennis",
+    synopsis: "Cheap, indoor, and available at community centres and clubs everywhere — table tennis is one of the easiest sports to pick up again at any age or fitness level.",
+    whyPeopleLovedIt: [
+      "The quick reflexes and the satisfaction of a good rally",
+      "How social and low-pressure club nights are",
+      "Being playable well into later life — no real fitness barrier to entry"
+    ],
+    gettingBack: [
+      "Table Tennis England's club finder lists local sessions, many with beginner-friendly \"come and try\" nights",
+      "Most clubs have bats and balls to borrow for your first few visits, so there's no need to buy kit upfront",
+      "Skills and timing tend to come back quickly — it's more muscle memory than fitness"
+    ],
+    kit: [
+      { name: "Table tennis bat", link: "#" },
+      { name: "Table tennis balls", link: "#" },
+      { name: "Carry case", link: "#" }
+    ]
+  },
+  {
+    id: "boxing",
+    name: "Boxing",
+    synopsis: "One of the most complete workouts in sport, and increasingly popular as a fitness comeback in its own right — most gyms cater for people rebuilding fitness, not just competing.",
+    whyPeopleLovedIt: [
+      "The discipline and structure of training",
+      "How much of a full-body workout it is",
+      "The confidence that comes with learning to hit properly"
+    ],
+    gettingBack: [
+      "England Boxing lists affiliated amateur clubs — most run separate fitness or non-contact sessions alongside competitive training",
+      "You don't need to spar to train — pad work and bag work make up most sessions, especially early on",
+      "Expect a tough first few weeks on conditioning before technique starts to click"
+    ],
+    kit: [
+      { name: "Boxing gloves", link: "#" },
+      { name: "Hand wraps", link: "#" },
+      { name: "Focus pads", link: "#" }
+    ]
+  },
+  {
+    id: "hockey",
+    name: "Hockey",
+    synopsis: "A fast, team-based sport that rewards fitness and stick skills in equal measure — most clubs are well used to welcoming adults back after time away.",
+    whyPeopleLovedIt: [
+      "The pace of the game and the teamwork",
+      "The club social scene, on and off the pitch",
+      "The mix of skill and fitness needed to play well"
+    ],
+    gettingBack: [
+      "England Hockey's club finder lists local clubs, many running specific back-to-hockey or masters sessions for returning adults",
+      "Preseason training in late summer is the easiest time to rejoin a club",
+      "Stick skills tend to come back faster than match fitness — expect the running to be the harder part"
+    ],
+    kit: [
+      { name: "Hockey stick", link: "#" },
+      { name: "Shin guards", link: "#" },
+      { name: "Mouthguard", link: "#" }
+    ]
+  },
+  {
+    id: "climbing",
+    name: "Climbing",
+    synopsis: "Indoor climbing walls have made this one of the most accessible comebacks on this list — no partner or club needed to get started, and bouldering venues are in most UK cities now.",
+    whyPeopleLovedIt: [
+      "The problem-solving of working out a route",
+      "The mix of strength, technique, and mental focus",
+      "The community at climbing walls and bouldering gyms"
+    ],
+    gettingBack: [
+      "Most climbing walls offer day passes and beginner inductions, so you can go without booking a course first",
+      "Bouldering (no ropes, low walls) is the easiest way back in if it's been a long time — less gear, less setup",
+      "Grip strength and technique both fade with time off, so expect early sessions to feel harder than you remember"
+    ],
+    kit: [
+      { name: "Climbing shoes", link: "#" },
+      { name: "Chalk bag and chalk", link: "#" },
+      { name: "Harness (for roped climbing)", link: "#" }
+    ]
+  },
+  {
+    id: "judo",
+    name: "Judo",
+    synopsis: "One of the UK's most established martial arts, with a strong adult and masters scene — most clubs are set up for people returning after a break, not just complete beginners.",
+    whyPeopleLovedIt: [
+      "The technical depth and the satisfaction of a well-executed throw",
+      "The discipline and etiquette of the dojo",
+      "The community built through regular training partners"
+    ],
+    gettingBack: [
+      "British Judo's club finder lists affiliated clubs, many with adult beginner and returner classes",
+      "Most clubs are used to adults rejoining at a lower grade than they left, rather than expecting you to pick up where you stopped",
+      "Fitness and flexibility usually take longer to return than technique — old habits tend to come back fast"
+    ],
+    kit: [
+      { name: "Judo gi (kimono)", link: "#" },
+      { name: "Belt", link: "#" },
+      { name: "Mouthguard", link: "#" }
+    ]
   }
 ];
 
