@@ -56,12 +56,22 @@ export default function Quiz() {
     timer.current = setTimeout(() => next(updated), text ? ADVANCE_WITH_REACTION_MS : ADVANCE_MS);
   };
 
+  // Picking a sport on the front page answers the sport question and skips it.
+  const startFromIntro = (sportId) => {
+    if (sportId) {
+      setAnswers((prev) => ({ ...prev, S1: sportId }));
+      goTo(2);
+    } else {
+      goTo(1);
+    }
+  };
+
   const setText = (value) => setAnswers((prev) => ({ ...prev, [step.question.id]: value }));
 
   if (step.type === "intro") {
     return (
       <div className="quiz-container quiz-container-wide">
-        <IntroScreen onStart={() => goTo(1)} />
+        <IntroScreen onStart={startFromIntro} />
       </div>
     );
   }

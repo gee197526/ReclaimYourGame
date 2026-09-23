@@ -191,3 +191,13 @@ Explanation paragraphs are drafted in the data file and need your review.
 **Reactions.** A one-line reaction shows under certain answers for about a second before moving on (for example B3 "This week" shows "Now we're talking."). 27 reactions across 14 questions. Questions without one move on straight away.
 
 All intro text, round names, round messages and reactions are in `src/data/quizV2.js`.
+
+## Front page update (23 Sept 2026)
+
+- Opening paragraph: "Used to play a sport you loved? Want to get back to it, but something keeps getting in the way? Take our free test..." plus a line for first timers.
+- "Kick off the test" button, then the score teaser and stat tiles.
+- Scrolling ticker of every sport, stadium style.
+- "Pick your game to kick off": 6 photo tiles (football, running, tennis, golf, swimming, cycling). Tapping one answers S1 and skips straight to S2.
+- "The small print": rough guide, not a prediction or medical advice; check with your GP; answers not stored; results include affiliate links marked "Ad".
+- Pitch markings and a striped edge on the hero. Sport tiles in the quiz now use each sport's photo.
+- Wording: S1 is now "Which game do you want to reclaim?"; F3 is now "Are you still in touch with anyone you used to play with?"

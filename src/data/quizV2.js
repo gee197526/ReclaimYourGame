@@ -67,7 +67,7 @@ export const goalOptions = [
 
 export const questions = [
   // Setup (unscored)
-  { id: "S1", category: "setup", type: "sport", prompt: "Which sport do you most want to reclaim?", firstTimerPrompt: "Which sport do you most want to try?" },
+  { id: "S1", category: "setup", type: "sport", prompt: "Which game do you want to reclaim?", subtitle: "Pick one. New to it? Pick the one you want to try." },
   { id: "S2", category: "setup", type: "single", prompt: "What's your main goal?", options: goalOptions.map((g) => ({ id: g.id, label: g.label, firstTimerLabel: g.firstTimerLabel })) },
 
   // A. Recency and frequency (15)
@@ -198,7 +198,7 @@ export const questions = [
     options: opts([["encourage", "They'd actively encourage me", 3], ["supportive", "Supportive", 2], ["indifferent", "Indifferent", 1], ["friction", "It would cause friction", 0]])
   },
   {
-    id: "F3", category: "F", weight: 5, type: "single", returnerOnly: true, prompt: "Are you still in touch with anyone from the sport?",
+    id: "F3", category: "F", weight: 5, type: "single", returnerOnly: true, prompt: "Are you still in touch with anyone you used to play with?",
     options: opts([["regularly", "Yes, regularly", 3], ["few", "A few, loosely", 2], ["notreally", "Not really", 1], ["no", "No", 0]])
   },
 
@@ -303,19 +303,32 @@ export const intro = {
   titleTop: "The",
   titleMain: "Comeback",
   titleBottom: "Test",
-  subheading: "How likely are you to actually get back into your sport? Play 7 quick rounds and get your score out of 100. Then try to beat it.",
+  paragraphs: [
+    "Used to play a sport you loved? Want to get back to it, but something keeps getting in the way?",
+    "Take our free test to find out how likely you are to make your comeback, what's holding you back, and how to beat it."
+  ],
+  newcomers: "Never played? It works for first timers too.",
+  button: "Kick off the test",
   stats: [
     { value: "7", label: "Rounds" },
     { value: "3", label: "Minutes" },
     { value: "0", label: "Sign-ups" }
   ],
+  quickPickTitle: "Or pick your game to kick off",
+  quickPicks: ["football", "running", "tennis", "golf", "swimming", "cycling"],
+  quickPickMore: "All {count} games",
   steps: [
-    { title: "Pick your sport", text: "{count} sports to choose from. Returning or trying one for the first time." },
+    { title: "Pick your game", text: "{count} to choose from. Coming back or trying one for the first time." },
     { title: "Play 7 quick rounds", text: "Tap an answer and it moves on. First timers skip a round." },
-    { title: "Get your score", text: "Your comeback score, your biggest barrier and a plan to beat it." }
+    { title: "Get your comeback score", text: "Your score out of 100, the one thing holding you back most, and a plan to beat it." }
   ],
-  privacy: "Your answers stay in your browser. Nothing is stored or sent anywhere.",
-  button: "Start the test"
+  smallPrintTitle: "The small print",
+  smallPrint: [
+    "Your score is a rough guide based on your answers. It isn't a scientific prediction and it isn't medical advice.",
+    "If you have a health condition or an injury, or you haven't exercised for a while, check with your GP before you start.",
+    "Your answers stay in your browser. We don't store them or send them anywhere, and there's no sign-up.",
+    "Your results include some affiliate links for kit and books. They're clearly marked \"Ad\"."
+  ]
 };
 
 // Rounds run in this order. A round with no visible questions (e.g. Track record

@@ -19,6 +19,7 @@ export default function QuestionStep({ question, value, firstTimer, isLast, reac
     return (
       <div className="step">
         <h2 className="question-title">{prompt}</h2>
+        {question.subtitle && <p className="step-subtitle">{question.subtitle}</p>}
         <div className="sport-grid">
           {sports.map((sport) => (
             <button
@@ -28,8 +29,13 @@ export default function QuestionStep({ question, value, firstTimer, isLast, reac
               aria-pressed={value === sport.id}
               onClick={() => onChoose(sport.id)}
             >
-              <SportIcon sport={sport.id} size={22} />
-              {sport.name}
+              {sport.photo && (
+                <span className="sport-tile-photo" style={{ backgroundImage: `url(${sport.photo})` }} aria-hidden="true" />
+              )}
+              <span className="sport-tile-label">
+                <SportIcon sport={sport.id} size={22} />
+                {sport.name}
+              </span>
             </button>
           ))}
         </div>

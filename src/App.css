@@ -479,7 +479,6 @@ a { color: var(--accent); }
 @keyframes flicker { 0%, 100% { opacity: 1; } 50% { opacity: 0.55; } }
 @keyframes draw { from { stroke-dashoffset: 100; } to { stroke-dashoffset: 0; } }
 @keyframes burst { 0% { transform: scale(0.3); opacity: 0.9; } 100% { transform: scale(1.6); opacity: 0; } }
-@keyframes grid-move { from { background-position: 0 0, 0 0; } to { background-position: 0 48px, 0 0; } }
 
 /* ---------- Intro ---------- */
 .quiz-container-wide { max-width: 760px; padding-top: 1rem; }
@@ -499,15 +498,7 @@ a { color: var(--accent); }
     linear-gradient(180deg, rgba(10, 10, 10, 0.55) 0%, rgba(10, 10, 10, 0.92) 60%, #0a0a0a 100%),
     url("https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?w=1200&h=900&fit=crop&q=80&auto=format") center 30% / cover;
 }
-.intro-hero-bg::after {
-  content: "";
-  position: absolute; inset: 0;
-  background:
-    repeating-linear-gradient(0deg, rgba(232, 255, 46, 0.07) 0 1px, transparent 1px 48px),
-    repeating-linear-gradient(90deg, rgba(232, 255, 46, 0.05) 0 1px, transparent 1px 48px);
-  mask-image: linear-gradient(180deg, transparent 0%, #000 40%, transparent 100%);
-  animation: grid-move 6s linear infinite;
-}
+
 .intro-hero-inner {
   padding: 2.25rem 1.5rem 1.75rem;
   text-align: center;
@@ -554,7 +545,7 @@ a { color: var(--accent); }
 .teaser-q { animation: flicker 1.2s steps(2) infinite; }
 .teaser-pct { font-size: 1.3rem; color: var(--muted); margin-left: 2px; }
 .teaser-gauge-label { margin: 0.35rem 0 0; font-size: 0.72rem; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); }
-.intro-sub { max-width: 30rem; margin: 0.75rem auto 1.5rem; color: #d8d8cf; font-size: 1.02rem; animation: rise 0.6s 0.2s ease both; }
+
 
 .btn-start {
   display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem;
@@ -589,7 +580,7 @@ a { color: var(--accent); }
 .intro-stat-label { font-size: 0.68rem; letter-spacing: 1.2px; text-transform: uppercase; color: var(--muted); margin-top: 0.3rem; }
 
 .intro-how { padding: 0 0.25rem; }
-.intro-how-title { font-family: var(--font-arcade); font-weight: 400; text-transform: uppercase; letter-spacing: 1px; font-size: 1.4rem; margin-bottom: 0.9rem; }
+.intro-section-title { font-family: var(--font-arcade); font-weight: 400; text-transform: uppercase; letter-spacing: 1px; font-size: 1.4rem; margin-bottom: 0.9rem; }
 .intro-steps { list-style: none; padding: 0; margin: 0 0 1rem; display: grid; gap: 0.7rem; }
 @media (min-width: 640px) { .intro-steps { grid-template-columns: repeat(3, 1fr); } }
 .intro-steps li {
@@ -702,4 +693,123 @@ a { color: var(--accent); }
   *, *::before, *::after { animation: none !important; transition: none !important; }
   .gauge-fill { stroke-dashoffset: 25; }
   .round-badge-ring, .round-badge-tick { stroke-dashoffset: 0; }
+}
+
+/* ---------- Sporty front page ---------- */
+.pitch-lines {
+  position: absolute; inset: 0; width: 100%; height: 100%; z-index: -1;
+  color: rgba(255, 255, 255, 0.09);
+  pointer-events: none;
+}
+.intro-hero-bg {
+  background:
+    radial-gradient(ellipse 80% 50% at 50% 0%, rgba(232, 255, 46, 0.2), transparent 70%),
+    linear-gradient(180deg, rgba(10, 10, 10, 0.45) 0%, rgba(10, 10, 10, 0.85) 55%, #0a0a0a 100%),
+    url("https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?w=1200&h=900&fit=crop&q=80&auto=format") center 30% / cover;
+}
+.intro-hero::after {
+  content: "";
+  position: absolute; left: 0; right: 0; bottom: 0; height: 8px;
+  background: repeating-linear-gradient(-45deg, var(--accent) 0 12px, #0a0a0a 12px 24px);
+}
+.intro-copy { max-width: 30rem; margin: 1rem auto 0; animation: rise 0.6s 0.15s ease both; }
+.intro-copy p { margin: 0 0 0.6rem; color: #e6e6dd; font-size: 1.05rem; line-height: 1.5; }
+.intro-copy p:first-child { font-family: var(--font-display); font-size: 1.2rem; color: var(--text); font-weight: 700; }
+.intro-newcomers { color: var(--accent) !important; font-weight: 600; font-size: 0.95rem !important; }
+.teaser-gauge { margin-top: 1.5rem; }
+.intro-copy + .btn-start { margin-top: 0.75rem; }
+
+.ticker {
+  overflow: hidden;
+  margin: 0 0 1.75rem;
+  border-top: 2px solid var(--accent);
+  border-bottom: 2px solid var(--accent);
+  background: #111108;
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+.ticker-track { display: flex; width: max-content; animation: ticker 45s linear infinite; }
+.ticker-item {
+  display: inline-flex; align-items: center; gap: 0.45rem;
+  padding: 0.6rem 1.1rem;
+  font-family: var(--font-arcade); font-size: 1.05rem; text-transform: uppercase; letter-spacing: 1px;
+  color: var(--text);
+  white-space: nowrap;
+}
+.ticker-item::after { content: "•"; color: var(--accent); margin-left: 1.1rem; }
+@keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+.intro-picks { margin-bottom: 2rem; }
+.pick-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.7rem; }
+@media (min-width: 640px) { .pick-grid { grid-template-columns: repeat(3, 1fr); } }
+.pick-tile {
+  position: relative; overflow: hidden;
+  height: 120px;
+  border: 1px solid var(--border); border-radius: 14px;
+  background: var(--surface);
+  cursor: pointer; padding: 0;
+  display: flex; align-items: flex-end;
+  transition: transform 0.15s ease, border-color var(--transition), box-shadow var(--transition);
+}
+.pick-photo {
+  position: absolute; inset: 0;
+  background-size: cover; background-position: center;
+  transition: transform 0.4s ease;
+}
+.pick-tile::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(10, 10, 10, 0.05) 30%, rgba(10, 10, 10, 0.9) 100%);
+}
+.pick-name {
+  position: relative; z-index: 1;
+  display: flex; align-items: center; gap: 0.4rem;
+  padding: 0.65rem 0.75rem;
+  font-family: var(--font-arcade); font-size: 1.2rem; text-transform: uppercase; letter-spacing: 0.5px;
+  color: var(--text);
+}
+.pick-tile:hover { transform: translateY(-3px); border-color: var(--accent); box-shadow: var(--glow); }
+.pick-tile:hover .pick-photo { transform: scale(1.06); }
+.pick-tile:hover .pick-name { color: var(--accent); }
+.pick-more { width: 100%; margin-top: 0.75rem; min-height: 50px; font-weight: 700; }
+
+.small-print {
+  margin-top: 2rem;
+  padding: 1.1rem 1.25rem;
+  border: 1px dashed #3a3a30; border-radius: 14px;
+}
+.small-print-title { font-size: 0.85rem; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); margin-bottom: 0.6rem; }
+.small-print ul { margin: 0; padding-left: 1.1rem; display: flex; flex-direction: column; gap: 0.4rem; }
+.small-print li { color: var(--muted); font-size: 0.85rem; line-height: 1.5; }
+
+/* ---------- Photo sport tiles in the quiz ---------- */
+.sport-tile {
+  position: relative; overflow: hidden;
+  min-height: 104px; padding: 0;
+  justify-content: flex-end; align-items: stretch;
+}
+.sport-tile-photo {
+  position: absolute; inset: 0;
+  background-size: cover; background-position: center;
+  opacity: 0.55;
+  transition: opacity var(--transition), transform 0.4s ease;
+}
+.sport-tile::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(180deg, transparent 20%, rgba(10, 10, 10, 0.92) 100%);
+}
+.sport-tile-label {
+  position: relative; z-index: 1;
+  display: flex; align-items: center; justify-content: center; gap: 0.4rem;
+  padding: 0.6rem 0.5rem;
+  font-family: var(--font-arcade); font-weight: 400; font-size: 1.05rem; text-transform: uppercase; letter-spacing: 0.5px;
+}
+.sport-tile:hover .sport-tile-photo { opacity: 0.8; transform: scale(1.06); }
+.sport-tile.selected .sport-tile-photo { opacity: 0.9; }
+.sport-tile.selected::before {
+  content: "✓"; position: absolute; top: 8px; right: 8px; z-index: 2;
+  width: 26px; height: 26px; border-radius: 50%;
+  display: grid; place-items: center;
+  background: var(--accent); color: #0a0a0a; font-weight: 800;
+}
+@media (prefers-reduced-motion: reduce) {
+  .ticker-track { animation: none; flex-wrap: wrap; width: auto; }
 }
