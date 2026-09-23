@@ -4,7 +4,8 @@ import {
   bands,
   LEVER_CATEGORIES,
   FIRST_TIMER_ANSWER,
-  keywordGroups
+  keywordGroups,
+  rounds
 } from "../data/quizV2.js";
 
 export function isFirstTimer(answers) {
@@ -77,4 +78,43 @@ export function matchKeywordGroup(text) {
 export function countWords(text) {
   const t = text.trim();
   return t ? t.split(/\s+/).length : 0;
+}
+
+// Rounds this person will play, each with its visible questions.
+export function visibleRounds(answers) {
+  const byId = Object.fromEntries(visibleQuestions(answers).map((q) => [q.id, q]));
+  return rounds
+    .map((r) => ({ ...r, questions: r.questions.map((id) => byId[id]).filter(Boolean) }))
+    .filter((r) => r.questions.length > 0);
+}
+
+// Every screen in order: intro, questions, and a round-complete screen after
+// each round except the last (the last one goes straight to results).
+export function buildSteps(answers) {
+  const list = visibleRounds(answers);
+  const totalQuestions = list.reduce((n, r) => n + r.questions.length, 0);
+  const steps = [{ type: "intro" }];
+  let qNum = 0;
+  list.forEach((round, i) => {
+    const roundInfo = { number: i + 1, total: list.length, name: round.name };
+    round.questions.forEach((q, j) => {
+      qNum += 1;
+      steps.push({ type: "question", question: q, round: roundInfo, qNum, totalQuestions, inRound: { n: j + 1, of: round.questions.length } });
+    });
+    if (i < list.length - 1) {
+      steps.push({ type: "roundEnd", round: { ...roundInfo, id: round.id, category: round.category, complete: round.complete }, next: list[i + 1].name });
+    }
+  });
+  return steps;
+}
+
+// Round-complete message based on how that category scored so far.
+export function roundMessage(round, answers) {
+  if (!round.complete) return null;
+  if (round.complete.firstTimer && isFirstTimer(answers)) return round.complete.firstTimer;
+  const pct = scoreQuiz(answers).categoryPct[round.category];
+  if (pct === undefined) return null;
+  if (pct >= 67) return round.complete.high;
+  if (pct >= 34) return round.complete.mid;
+  return round.complete.low;
 }

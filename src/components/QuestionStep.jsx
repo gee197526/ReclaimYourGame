@@ -2,24 +2,22 @@ import sports from "../data/sports";
 import SportIcon from "./SportIcon";
 import { countWords } from "../lib/scoreQuizV2";
 
-export default function QuestionStep({ question, value, firstTimer, isFirst, isLast, onChoose, onText, onNext, onBack }) {
+export default function QuestionStep({ question, value, firstTimer, isLast, reaction, onChoose, onText, onNext, onBack }) {
   const prompt = (firstTimer && question.firstTimerPrompt) || question.prompt;
 
-  const backButton = !isFirst && (
+  const backButton = (
     <button type="button" className="btn-secondary" onClick={onBack}>Back</button>
+  );
+
+  const reactionLine = (
+    <p className={`answer-reaction ${reaction ? "show" : ""}`} aria-live="polite">
+      {reaction}
+    </p>
   );
 
   if (question.type === "sport") {
     return (
       <div className="step">
-        <div className="hero-banner" role="img" aria-label="Players on a floodlit pitch at night">
-          <div className="hero-banner-overlay">
-            <p className="hero-banner-text">
-              Reclaiming your game, or claiming it for the first time? Answer a few quick questions
-              and we'll tell you how likely you are to make it happen.
-            </p>
-          </div>
-        </div>
         <h2>{prompt}</h2>
         <div className="sport-grid">
           {sports.map((sport) => (
@@ -34,6 +32,12 @@ export default function QuestionStep({ question, value, firstTimer, isFirst, isL
               {sport.name}
             </button>
           ))}
+        </div>
+        <div className="step-actions">
+          {backButton}
+          {value && (
+            <button type="button" className="btn-primary" onClick={onNext}>Continue</button>
+          )}
         </div>
       </div>
     );
@@ -56,6 +60,7 @@ export default function QuestionStep({ question, value, firstTimer, isFirst, isL
             </button>
           ))}
         </div>
+        {reactionLine}
         <div className="step-actions">
           {backButton}
           {value && (

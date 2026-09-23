@@ -462,3 +462,53 @@ a { color: var(--accent); }
   margin: 0 0 1.25rem;
   font-weight: 600;
 }
+
+/* Quiz v2: intro, rounds, reactions */
+.intro-heading { font-size: 1.7rem; margin: 0.25rem 0 0.5rem; }
+.intro-sub { color: var(--muted); margin: 0 0 1.25rem; }
+.intro-points { list-style: none; padding: 0; margin: 0 0 1.5rem; display: flex; flex-direction: column; gap: 0.75rem; }
+.intro-points li {
+  display: flex; flex-direction: column; gap: 0.15rem;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+.intro-points strong { color: var(--accent); font-family: var(--font-display); }
+.intro-start { width: 100%; }
+
+.round-chip {
+  display: flex; justify-content: space-between; align-items: center;
+  margin: 0 0 1rem;
+  font-size: 0.8rem; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase;
+  color: var(--accent);
+}
+.round-chip-count { color: var(--muted); font-weight: 500; }
+
+.answer-reaction {
+  min-height: 1.6rem;
+  margin: 0.75rem 0 0;
+  color: var(--accent);
+  font-weight: 600;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.answer-reaction.show { opacity: 1; transform: none; }
+
+.round-end { text-align: center; padding: 1.5rem 0; }
+.round-dots { display: flex; justify-content: center; gap: 0.5rem; margin-bottom: 1.25rem; }
+.round-dot { width: 12px; height: 12px; border-radius: 50%; border: 2px solid var(--border); background: transparent; }
+.round-dot.done { background: var(--accent); border-color: var(--accent); }
+.round-end-label { color: var(--muted); margin: 0; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; }
+.round-end-name { font-size: 1.8rem; color: var(--accent); margin: 0.25rem 0 0.75rem; }
+.round-end-message { font-size: 1.1rem; margin: 0 auto 1.5rem; max-width: 30rem; }
+.round-end .step-actions { justify-content: center; gap: 0.75rem; flex-wrap: wrap; }
+
+@media (prefers-reduced-motion: reduce) {
+  .answer-reaction { transition: none; transform: none; }
+}
+@media (max-width: 600px) {
+  .intro-screen .hero-banner { height: 140px; margin-bottom: 1rem; }
+}

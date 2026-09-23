@@ -169,3 +169,23 @@ Explanation paragraphs are drafted in the data file and need your review.
 - Progress bar shows "Question 7 of 25" (or "of 20" for first timers).
 - Free text and postcode stay in the browser. No network calls with quiz answers.
 - Install analytics before launch so drop off by question and kit link clicks by band can be measured.
+
+## Gamification (added 23 Sept 2026)
+
+**Intro screen** before question 1: what you get, how it works (7 rounds, 6 for first timers, about 3 minutes), and that nothing is stored. "Start round 1" button.
+
+**Rounds.** Questions are grouped into rounds, each with a "Round X of Y complete" screen and a short message based on how that round scored (67%+ high, 34 to 66% mid, under 34% low). The score itself stays hidden until the end.
+
+| Round | Questions | Category used for the message |
+|---|---|---|
+| 1. Warm-up | S1, S2, A1 to A3 | A (first timers get their own line) |
+| 2. Motivation | B1 to B5 | B |
+| 3. Barriers | C1 to C5 | C |
+| 4. Kit and readiness | D1 to D3 | D |
+| 5. Track record | E1, E2 (returners only) | E |
+| 6. Team talk | F1 to F3 | F |
+| 7. Final whistle | S3, S4 | none, goes straight to results |
+
+**Reactions.** A one-line reaction shows under certain answers for about a second before moving on (for example B3 "This week" shows "Now we're talking."). 27 reactions across 14 questions. Questions without one move on straight away.
+
+All intro text, round names, round messages and reactions are in `src/data/quizV2.js`.

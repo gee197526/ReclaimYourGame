@@ -293,3 +293,102 @@ export const kitIntro = {
   most: "You'll need most of your kit. Start with the essentials below and add the rest later.",
   all: "You'll need to kit yourself out. Start with the essentials below. No need to buy everything at once."
 };
+
+// ---------------------------------------------------------------------------
+// Gamification: intro screen, rounds and answer reactions.
+// ---------------------------------------------------------------------------
+
+export const intro = {
+  heading: "How likely are you to get back into your sport?",
+  subheading: "Answer a few quick rounds and we'll give you a score out of 100, plus a plan to beat it.",
+  points: [
+    { title: "What you get", text: "Your likelihood score, the one thing holding you back most, and tips and kit for your sport." },
+    { title: "How it works", text: "7 quick rounds (6 if you're new to the sport). Tap an answer and it moves on. About 3 minutes." },
+    { title: "Private", text: "No sign-up. Your answers stay in your browser and aren't stored or sent anywhere." }
+  ],
+  button: "Start round 1"
+};
+
+// Rounds run in this order. A round with no visible questions (e.g. Track record
+// for first timers) is skipped. `category` drives the round-complete message.
+// Messages: high = 67%+ of that category's points, mid = 34–66%, low = under 34%.
+export const rounds = [
+  {
+    id: "warmup", name: "Warm-up", category: "A",
+    questions: ["S1", "S2", "A1", "A2", "A3"],
+    complete: {
+      high: "Solid history. That muscle memory is still in there.",
+      mid: "Decent foundations to build on.",
+      low: "Long time away? That's exactly what this is for.",
+      firstTimer: "Fresh start. Everyone begins somewhere."
+    }
+  },
+  {
+    id: "motivation", name: "Motivation", category: "B",
+    questions: ["B1", "B2", "B3", "B4", "B5"],
+    complete: {
+      high: "Motivation's strong. That's the biggest piece.",
+      mid: "The want is there. We'll help you sharpen it.",
+      low: "Motivation's a bit low right now. Worth knowing, and it can change."
+    }
+  },
+  {
+    id: "barriers", name: "Barriers", category: "C",
+    questions: ["C1", "C2", "C3", "C4", "C5"],
+    complete: {
+      high: "Not much in your way. Good sign.",
+      mid: "A few hurdles, all fixable.",
+      low: "Quite a bit in the way right now. We'll pick the one to tackle first."
+    }
+  },
+  {
+    id: "readiness", name: "Kit and readiness", category: "D",
+    questions: ["D1", "D2", "D3"],
+    complete: {
+      high: "You're nearly ready to go.",
+      mid: "Some prep done, some still to do.",
+      low: "Not much prep yet. Small steps count."
+    }
+  },
+  {
+    id: "track", name: "Track record", category: "E",
+    questions: ["E1", "E2"],
+    complete: {
+      high: "Good track record. You've done this before.",
+      mid: "Mixed history. Useful to learn from.",
+      low: "It hasn't stuck before. We'll plan around what went wrong."
+    }
+  },
+  {
+    id: "team", name: "Team talk", category: "F",
+    questions: ["F1", "F2", "F3"],
+    complete: {
+      high: "Good backup around you.",
+      mid: "Some support there. That helps.",
+      low: "You'd be going mostly solo. Clubs and beginner sessions can change that."
+    }
+  },
+  {
+    id: "final", name: "Final whistle", category: null,
+    questions: ["S3", "S4"]
+  }
+];
+
+// Short reaction shown after certain answers, before moving on.
+// Keyed by question id, then option id. Leave an option out for no reaction.
+export const reactions = {
+  A1: { under1: "Still fresh. That helps.", "10plus": "Long gap, but you're far from the only one.", never: "Brand new. Love it." },
+  B1: { always: "That's a strong pull.", rarely: "Honest answer. Noted." },
+  B3: { week: "Now we're talking.", someday: "Someday is fine, but a date helps." },
+  C1: { "3plus": "Plenty of time to play with.", none: "Time's a big one. We'll come back to it." },
+  C2: { same: "Great base to start from.", scratch: "Everyone starts somewhere." },
+  C3: { concern: "Thanks for flagging. We'll add a health note to your results." },
+  C4: { yes: "Knowing where to go is half the battle.", no: "Finding a venue is easier than it sounds." },
+  C5: { major: "Noted. Pay-as-you-go sessions can keep costs down." },
+  D1: { usable: "Kit ready. One less thing.", all: "We'll show you the essentials." },
+  D2: { booked: "Already booked? Brilliant.", no: "That's what this is for." },
+  D3: { definitely: "That's the spirit.", no: "Fair enough. We'll work on that." },
+  E1: { lasted: "You've done it before. You can do it again.", never: "It hasn't stuck before. That's useful to know." },
+  F1: { keen: "A partner makes a big difference.", alone: "Going solo is hard. Beginner sessions can help." },
+  F2: { encourage: "Great backup.", friction: "That's tough. Worth a chat before you start." }
+};
