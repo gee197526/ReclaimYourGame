@@ -11,14 +11,14 @@ export default function QuestionStep({ question, value, firstTimer, isLast, reac
 
   const reactionLine = (
     <p className={`answer-reaction ${reaction ? "show" : ""}`} aria-live="polite">
-      {reaction}
+      {reaction && <span key={reaction} className="answer-reaction-pill">{reaction}</span>}
     </p>
   );
 
   if (question.type === "sport") {
     return (
       <div className="step">
-        <h2>{prompt}</h2>
+        <h2 className="question-title">{prompt}</h2>
         <div className="sport-grid">
           {sports.map((sport) => (
             <button
@@ -46,17 +46,19 @@ export default function QuestionStep({ question, value, firstTimer, isLast, reac
   if (question.type === "single") {
     return (
       <div className="step">
-        <h2>{prompt}</h2>
+        <h2 className="question-title">{prompt}</h2>
         <div className="option-list">
-          {question.options.map((opt) => (
+          {question.options.map((opt, i) => (
             <button
               key={opt.id}
               type="button"
               className={`option-row ${value === opt.id ? "selected" : ""}`}
               aria-pressed={value === opt.id}
               onClick={() => onChoose(opt.id)}
+              style={{ animationDelay: `${i * 40}ms` }}
             >
-              {(firstTimer && opt.firstTimerLabel) || opt.label}
+              <span className="option-key" aria-hidden="true">{String.fromCharCode(65 + i)}</span>
+              <span className="option-label">{(firstTimer && opt.firstTimerLabel) || opt.label}</span>
             </button>
           ))}
         </div>
@@ -76,7 +78,7 @@ export default function QuestionStep({ question, value, firstTimer, isLast, reac
   if (question.type === "postcode") {
     return (
       <div className="step">
-        <h2>{prompt}</h2>
+        <h2 className="question-title">{prompt}</h2>
         <p className="step-subtitle">{question.subtitle}</p>
         <input
           type="text"
@@ -102,7 +104,7 @@ export default function QuestionStep({ question, value, firstTimer, isLast, reac
     const over = words > question.maxWords;
     return (
       <div className="step">
-        <h2>{prompt}</h2>
+        <h2 className="question-title">{prompt}</h2>
         <p className="step-subtitle">{question.subtitle}</p>
         <textarea
           className="text-input contact-textarea"

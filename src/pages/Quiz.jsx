@@ -1,11 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import ProgressBar from "../components/ProgressBar";
+import RoundHud from "../components/RoundHud";
 import QuestionStep from "../components/QuestionStep";
 import IntroScreen from "../components/IntroScreen";
 import RoundEnd from "../components/RoundEnd";
 import { reactions } from "../data/quizV2";
-import { buildSteps, isFirstTimer, roundMessage } from "../lib/scoreQuizV2";
+import { buildSteps, isFirstTimer, roundMessage, visibleRounds } from "../lib/scoreQuizV2";
 
 const ADVANCE_MS = 300;
 const ADVANCE_WITH_REACTION_MS = 1300;
@@ -60,7 +60,7 @@ export default function Quiz() {
 
   if (step.type === "intro") {
     return (
-      <div className="quiz-container">
+      <div className="quiz-container quiz-container-wide">
         <IntroScreen onStart={() => goTo(1)} />
       </div>
     );
@@ -84,11 +84,13 @@ export default function Quiz() {
 
   return (
     <div className="quiz-container">
-      <ProgressBar step={step.qNum} total={step.totalQuestions} label="Question" />
-      <p className="round-chip">
-        Round {step.round.number} of {step.round.total}: {step.round.name}
-        <span className="round-chip-count">{step.inRound.n} / {step.inRound.of}</span>
-      </p>
+      <RoundHud
+        rounds={visibleRounds(answers).map((r) => ({ id: r.id, name: r.name, count: r.questions.length }))}
+        roundIndex={step.round.number - 1}
+        answeredInRound={step.inRound.n - 1}
+        qNum={step.qNum}
+        totalQuestions={step.totalQuestions}
+      />
       <QuestionStep
         key={step.question.id}
         question={step.question}

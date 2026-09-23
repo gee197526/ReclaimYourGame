@@ -299,14 +299,23 @@ export const kitIntro = {
 // ---------------------------------------------------------------------------
 
 export const intro = {
-  heading: "How likely are you to get back into your sport?",
-  subheading: "Answer a few quick rounds and we'll give you a score out of 100, plus a plan to beat it.",
-  points: [
-    { title: "What you get", text: "Your likelihood score, the one thing holding you back most, and tips and kit for your sport." },
-    { title: "How it works", text: "7 quick rounds (6 if you're new to the sport). Tap an answer and it moves on. About 3 minutes." },
-    { title: "Private", text: "No sign-up. Your answers stay in your browser and aren't stored or sent anywhere." }
+  kicker: "Free · 3 minutes · No sign-up",
+  titleTop: "The",
+  titleMain: "Comeback",
+  titleBottom: "Test",
+  subheading: "How likely are you to actually get back into your sport? Play 7 quick rounds and get your score out of 100. Then try to beat it.",
+  stats: [
+    { value: "7", label: "Rounds" },
+    { value: "3", label: "Minutes" },
+    { value: "0", label: "Sign-ups" }
   ],
-  button: "Start round 1"
+  steps: [
+    { title: "Pick your sport", text: "{count} sports to choose from. Returning or trying one for the first time." },
+    { title: "Play 7 quick rounds", text: "Tap an answer and it moves on. First timers skip a round." },
+    { title: "Get your score", text: "Your comeback score, your biggest barrier and a plan to beat it." }
+  ],
+  privacy: "Your answers stay in your browser. Nothing is stored or sent anywhere.",
+  button: "Start the test"
 };
 
 // Rounds run in this order. A round with no visible questions (e.g. Track record

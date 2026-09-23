@@ -9,6 +9,7 @@ import {
 } from "../data/quizV2";
 import { scoreQuiz, isFirstTimer, matchKeywordGroup } from "../lib/scoreQuizV2";
 import SportIcon from "../components/SportIcon";
+import ScoreDial from "../components/ScoreDial";
 
 export default function Results() {
   const location = useLocation();
@@ -34,10 +35,11 @@ export default function Results() {
     <div className="results-container">
       {/* 1. Score and band headline */}
       <section className={`score-card band-${band.id}`}>
+        <p className="score-kicker">Your comeback score</p>
         <p className="score-label">
-          Your likelihood of {firstTimer ? "getting into" : "getting back into"} {sport.name.toLowerCase()}
+          Likelihood of {firstTimer ? "getting into" : "getting back into"} {sport.name.toLowerCase()}
         </p>
-        <p className="score-value">{score}%</p>
+        <ScoreDial score={score} />
         <p className="score-band">{band.name}</p>
         <h1 className="score-headline">{band.headline}</h1>
       </section>

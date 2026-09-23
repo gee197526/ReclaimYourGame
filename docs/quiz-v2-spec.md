@@ -172,7 +172,9 @@ Explanation paragraphs are drafted in the data file and need your review.
 
 ## Gamification (added 23 Sept 2026)
 
-**Intro screen** before question 1: what you get, how it works (7 rounds, 6 for first timers, about 3 minutes), and that nothing is stored. "Start round 1" button.
+**Intro screen** before question 1, branded **The Comeback Test**: big headline, an animated gauge teaser showing "??%", a "Start the test" button, stat tiles (7 rounds, 3 minutes, 0 sign-ups), a 3-step "How it works", and a privacy line. The name and all intro copy are in `intro` in `src/data/quizV2.js`.
+
+**Game look.** Round name and question counter at the top with a progress bar split into one segment per round. Answers are lettered A to E. Reactions pop up as a highlighted pill. Round complete screens show an animated tick badge. The results page counts the score up on a ring. All animation is switched off for people who set "reduce motion" on their device.
 
 **Rounds.** Questions are grouped into rounds, each with a "Round X of Y complete" screen and a short message based on how that round scored (67%+ high, 34 to 66% mid, under 34% low). The score itself stays hidden until the end.
 
