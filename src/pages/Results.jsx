@@ -1,116 +1,144 @@
 import { useLocation, Link, Navigate } from "react-router-dom";
 import sports from "../data/sports";
-import { goalOptions, lastPlayedOptions } from "../data/quizOptions";
+import {
+  goalOptions,
+  GENERAL_CAVEAT,
+  GP_WARNING,
+  categoryContent,
+  kitIntro
+} from "../data/quizV2";
+import { scoreQuiz, isFirstTimer, matchKeywordGroup } from "../lib/scoreQuizV2";
 import SportIcon from "../components/SportIcon";
 
 export default function Results() {
   const location = useLocation();
   const answers = location.state?.answers;
+  const sport = answers && sports.find((s) => s.id === answers.S1);
 
-  if (!answers) {
-    // No quiz data — send back to start rather than showing an empty page.
+  if (!answers || !sport) {
+    // No quiz data: send back to start rather than showing an empty page.
     return <Navigate to="/" replace />;
   }
 
-  const selectedSports = sports.filter((s) => answers.sports.includes(s.id));
-  const isFirstTimer = answers.lastPlayed === "never";
-  const lastPlayedLabel = lastPlayedOptions.find((o) => o.id === answers.lastPlayed)?.label;
-  const selectedGoals = goalOptions.filter((o) => answers.goal.includes(o.id));
-  const goalText = selectedGoals.map((g) => g.label.toLowerCase()).join(", ");
+  const firstTimer = isFirstTimer(answers);
+  const { score, band, lever } = scoreQuiz(answers);
+  const goal = goalOptions.find((g) => g.id === answers.S2);
+  const showGpWarning = answers[GP_WARNING.trigger.question] === GP_WARNING.trigger.option;
+
+  const keywordGroup = matchKeywordGroup(answers.S4);
+  const explanation = keywordGroup?.paragraph ?? categoryContent[lever]?.paragraph;
+  const leverTip = categoryContent[lever]?.lever;
+  const kitLine = kitIntro[answers.D1];
 
   return (
     <div className="results-container">
-      <h1>Your game plan</h1>
-      <p className="results-intro">
-        {isFirstTimer
-          ? "Trying it for the first time."
-          : `Last played ${lastPlayedLabel?.toLowerCase()}.`} Goal: {goalText}.
-      </p>
+      {/* 1. Score and band headline */}
+      <section className={`score-card band-${band.id}`}>
+        <p className="score-label">
+          Your likelihood of {firstTimer ? "getting into" : "getting back into"} {sport.name.toLowerCase()}
+        </p>
+        <p className="score-value">{score}%</p>
+        <p className="score-band">{band.name}</p>
+        <h1 className="score-headline">{band.headline}</h1>
+      </section>
 
-      {selectedGoals.length > 0 && (
+      {showGpWarning && (
+        <p className="gp-warning" role="note">{GP_WARNING.text}</p>
+      )}
+
+      {/* 2. Band message and caveats */}
+      <section className="results-cta">
+        <p>{band.message}</p>
+        <p className="caveat">{band.caveat}</p>
+        <p className="caveat">{GENERAL_CAVEAT}</p>
+      </section>
+
+      {/* 3. Explanation and 4. biggest lever */}
+      {explanation && (
+        <section className="results-cta">
+          <h3>What your answers say</h3>
+          <p>{explanation}</p>
+        </section>
+      )}
+      {leverTip && (
+        <section className="results-cta lever-card">
+          <h3>Your biggest lever</h3>
+          <p>{leverTip}</p>
+        </section>
+      )}
+
+      {goal && (
         <section className="results-cta goals-card">
-          <h3>Your goals</h3>
+          <h3>Your goal: {((firstTimer && goal.firstTimerLabel) || goal.label).toLowerCase()}</h3>
           <ul className="detail-list">
-            {selectedGoals.flatMap((goal) => goal.bullets).map((point) => (
+            {goal.bullets.map((point) => (
               <li key={point}>{point}</li>
             ))}
           </ul>
         </section>
       )}
 
-      {selectedSports.map((sport) => (
-        <section key={sport.id} className="sport-result">
-          {sport.photo && (
-            <img
-              src={sport.photo}
-              alt={sport.name}
-              className="sport-result-photo"
-              loading="lazy"
-            />
-          )}
-          <h2 className="sport-result-heading">
-            <SportIcon sport={sport.id} size={34} />
-            {sport.name}
-          </h2>
-          <p>{sport.synopsis}</p>
+      {/* 5. Sport content and 6. kit */}
+      <section className="sport-result">
+        {sport.photo && (
+          <img src={sport.photo} alt={sport.name} className="sport-result-photo" loading="lazy" />
+        )}
+        <h2 className="sport-result-heading">
+          <SportIcon sport={sport.id} size={34} />
+          {sport.name}
+        </h2>
+        <p>{sport.synopsis}</p>
 
-          <h3>Why people love it</h3>
-          <ul className="detail-list">
-            {sport.whyPeopleLovedIt.map((point) => (
-              <li key={point}>{point}</li>
-            ))}
-          </ul>
+        <h3>Why people love it</h3>
+        <ul className="detail-list">
+          {sport.whyPeopleLovedIt.map((point) => (
+            <li key={point}>{point}</li>
+          ))}
+        </ul>
 
-          <h3>{isFirstTimer ? "Getting started" : "Getting back in"}</h3>
-          <ul className="detail-list">
-            {sport.gettingBack.map((point) => (
-              <li key={point}>{point}</li>
-            ))}
-          </ul>
+        <h3>{firstTimer ? "Getting started" : "Getting back in"}</h3>
+        <ul className="detail-list">
+          {sport.gettingBack.map((point) => (
+            <li key={point}>{point}</li>
+          ))}
+        </ul>
 
-          <h3>Kit to consider <span className="ad-badge">Ad</span></h3>
-          <p className="ad-disclosure">
-            These are affiliate links. If you buy through one, we may earn a small commission
-            at no extra cost to you.
-          </p>
-          <ul className="kit-list">
-            {sport.kit.map((item) => (
-              <li key={item.name}>
-                <a href={item.link} target="_blank" rel="noopener noreferrer">
-                  {item.name}
-                </a>
-              </li>
-            ))}
-          </ul>
+        <h3>Kit to consider <span className="ad-badge">Ad</span></h3>
+        {kitLine && <p>{kitLine}</p>}
+        <p className="ad-disclosure">
+          These are affiliate links. If you buy through one, we may earn a small commission
+          at no extra cost to you.
+        </p>
+        <ul className="kit-list">
+          {sport.kit.map((item) => (
+            <li key={item.name}>
+              <a href={item.link} target="_blank" rel="noopener noreferrer">
+                {item.name}
+              </a>
+            </li>
+          ))}
+        </ul>
 
-          <h3>Books to consider <span className="ad-badge">Ad</span></h3>
-          <p className="ad-disclosure">
-            These are affiliate links. If you buy through one, we may earn a small commission
-            at no extra cost to you.
-          </p>
-          <ul className="book-list">
-            {sport.books.map((item) => (
-              <li key={item.name}>
-                <a href={item.link} target="_blank" rel="noopener noreferrer">
-                  {item.cover && (
-                    <img src={item.cover} alt="" className="book-cover" loading="lazy" />
-                  )}
-                  <span>{item.name}</span>
-                </a>
-              </li>
-            ))}
-          </ul>
-        </section>
-      ))}
-
-      <section className="results-cta">
-        <h3>Clubs near {answers.postcode || "you"}</h3>
-        <p className="placeholder-note">Club finder coming in a later phase.</p>
+        <h3>Books to consider <span className="ad-badge">Ad</span></h3>
+        <p className="ad-disclosure">
+          These are affiliate links. If you buy through one, we may earn a small commission
+          at no extra cost to you.
+        </p>
+        <ul className="book-list">
+          {sport.books.map((item) => (
+            <li key={item.name}>
+              <a href={item.link} target="_blank" rel="noopener noreferrer">
+                {item.cover && <img src={item.cover} alt="" className="book-cover" loading="lazy" />}
+                <span>{item.name}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
       </section>
 
       <section className="results-cta">
-        <h3>Save your personalised plan</h3>
-        <p className="placeholder-note">Email capture coming in a later phase.</p>
+        <h3>Clubs near {answers.S3 || "you"}</h3>
+        <p className="placeholder-note">Club finder coming in a later phase.</p>
       </section>
 
       <Link to="/" className="btn-secondary">Start over</Link>

@@ -1,87 +1,63 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import ProgressBar from "../components/ProgressBar";
-import SportSelectStep from "../components/steps/SportSelectStep";
-import LastPlayedStep from "../components/steps/LastPlayedStep";
-import HoldingBackStep from "../components/steps/HoldingBackStep";
-import LocationStep from "../components/steps/LocationStep";
-import GoalStep from "../components/steps/GoalStep";
+import QuestionStep from "../components/QuestionStep";
+import { visibleQuestions, isFirstTimer } from "../lib/scoreQuizV2";
 
-const TOTAL_STEPS = 5;
+const AUTO_ADVANCE_MS = 250;
 
 export default function Quiz() {
   const navigate = useNavigate();
-  const [step, setStep] = useState(1);
-  const [answers, setAnswers] = useState({
-    sports: [],
-    lastPlayed: "",
-    holdingBack: [],
-    postcode: "",
-    goal: []
-  });
+  const [answers, setAnswers] = useState({});
+  const [index, setIndex] = useState(0);
+  const timer = useRef(null);
 
-  const toggleInArray = (key, id) => {
-    setAnswers((prev) => {
-      const arr = prev[key];
-      return {
-        ...prev,
-        [key]: arr.includes(id) ? arr.filter((x) => x !== id) : [...arr, id]
-      };
-    });
+  useEffect(() => () => clearTimeout(timer.current), []);
+
+  const list = visibleQuestions(answers);
+  const question = list[index];
+  const isLast = index === list.length - 1;
+
+  const next = (latestAnswers = answers) => {
+    const latestList = visibleQuestions(latestAnswers);
+    if (index >= latestList.length - 1) {
+      navigate("/results", { state: { answers: latestAnswers } });
+    } else {
+      setIndex(index + 1);
+      window.scrollTo({ top: 0 });
+    }
   };
 
-  const setField = (key, value) => setAnswers((prev) => ({ ...prev, [key]: value }));
-
-  const next = () => setStep((s) => Math.min(s + 1, TOTAL_STEPS));
-  const back = () => setStep((s) => Math.max(s - 1, 1));
-
-  const submit = () => {
-    navigate("/results", { state: { answers } });
+  const back = () => {
+    clearTimeout(timer.current);
+    setIndex((i) => Math.max(i - 1, 0));
   };
+
+  // Single select: save and auto advance after a short pause so the selection is visible.
+  const choose = (value) => {
+    const updated = { ...answers, [question.id]: value };
+    setAnswers(updated);
+    clearTimeout(timer.current);
+    timer.current = setTimeout(() => next(updated), AUTO_ADVANCE_MS);
+  };
+
+  const setText = (value) => setAnswers((prev) => ({ ...prev, [question.id]: value }));
 
   return (
     <div className="quiz-container">
-      <ProgressBar step={step} total={TOTAL_STEPS} />
-
-      {step === 1 && (
-        <SportSelectStep
-          selected={answers.sports}
-          onToggle={(id) => toggleInArray("sports", id)}
-          onNext={next}
-        />
-      )}
-      {step === 2 && (
-        <LastPlayedStep
-          selected={answers.lastPlayed}
-          onSelect={(id) => setField("lastPlayed", id)}
-          onNext={next}
-          onBack={back}
-        />
-      )}
-      {step === 3 && (
-        <HoldingBackStep
-          selected={answers.holdingBack}
-          onToggle={(id) => toggleInArray("holdingBack", id)}
-          onNext={next}
-          onBack={back}
-        />
-      )}
-      {step === 4 && (
-        <LocationStep
-          value={answers.postcode}
-          onChange={(v) => setField("postcode", v)}
-          onNext={next}
-          onBack={back}
-        />
-      )}
-      {step === 5 && (
-        <GoalStep
-          selected={answers.goal}
-          onToggle={(id) => toggleInArray("goal", id)}
-          onSubmit={submit}
-          onBack={back}
-        />
-      )}
+      <ProgressBar step={index + 1} total={list.length} label="Question" />
+      <QuestionStep
+        key={question.id}
+        question={question}
+        value={answers[question.id]}
+        firstTimer={isFirstTimer(answers)}
+        isFirst={index === 0}
+        isLast={isLast}
+        onChoose={choose}
+        onText={setText}
+        onNext={() => next()}
+        onBack={back}
+      />
     </div>
   );
 }

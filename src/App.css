@@ -413,3 +413,52 @@ a { color: var(--accent); }
 .footer-links { display: flex; gap: 1.25rem; }
 .footer-links a { color: var(--muted); text-decoration: none; transition: color var(--transition); }
 .footer-links a:hover { color: var(--accent); }
+
+/* Quiz v2: likelihood score */
+.word-count { color: var(--muted); font-size: 0.85rem; margin: -0.5rem 0 0; text-align: right; }
+.word-count.over { color: #ff6b6b; }
+
+.score-card {
+  text-align: center;
+  background: linear-gradient(160deg, var(--surface-alt) 0%, var(--surface) 55%);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 2rem 1.5rem;
+  margin-bottom: 1.25rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+.score-label { color: var(--muted); margin: 0; }
+.score-value {
+  font-family: var(--font-display);
+  font-size: 4rem;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--accent);
+  margin: 0.5rem 0 0.25rem;
+}
+.score-band {
+  display: inline-block;
+  margin: 0 0 1rem;
+  padding: 0.15rem 0.6rem;
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  color: var(--accent);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+.score-headline { margin: 0; }
+.results-cta p { margin: 0 0 0.6rem; }
+.results-cta p:last-child { margin-bottom: 0; }
+.caveat { color: var(--muted); font-size: 0.9rem; }
+.lever-card { border-color: var(--accent); }
+.gp-warning {
+  border: 2px solid #ffb020;
+  background: rgba(255, 176, 32, 0.08);
+  color: var(--text);
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  margin: 0 0 1.25rem;
+  font-weight: 600;
+}
