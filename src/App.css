@@ -496,7 +496,7 @@ a { color: var(--accent); }
   background:
     radial-gradient(ellipse 80% 55% at 50% 0%, rgba(232, 255, 46, 0.22), transparent 70%),
     linear-gradient(180deg, rgba(10, 10, 10, 0.55) 0%, rgba(10, 10, 10, 0.92) 60%, #0a0a0a 100%),
-    url("https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?w=1200&h=900&fit=crop&q=80&auto=format") center 30% / cover;
+    url("./assets/home-hockey.webp") center 40% / cover;
 }
 
 .intro-hero-inner {
@@ -704,8 +704,8 @@ a { color: var(--accent); }
 .intro-hero-bg {
   background:
     radial-gradient(ellipse 80% 50% at 50% 0%, rgba(232, 255, 46, 0.2), transparent 70%),
-    linear-gradient(180deg, rgba(10, 10, 10, 0.45) 0%, rgba(10, 10, 10, 0.85) 55%, #0a0a0a 100%),
-    url("https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?w=1200&h=900&fit=crop&q=80&auto=format") center 30% / cover;
+    linear-gradient(180deg, rgba(10, 10, 10, 0.25) 0%, rgba(10, 10, 10, 0.7) 55%, #0a0a0a 100%),
+    url("./assets/home-hockey.webp") center 40% / cover;
 }
 .intro-hero::after {
   content: "";
@@ -822,8 +822,8 @@ a { color: var(--accent); }
 
 /* 1. Your result */
 .result-box {
-  --card: #ffd21f;
-  --card-glow: rgba(255, 210, 31, 0.14);
+  --card: #ffe600;
+  --card-glow: rgba(255, 230, 0, 0.14);
   display: flex;
   flex-direction: column;
   gap: 0.9rem;
@@ -832,9 +832,9 @@ a { color: var(--accent); }
   border-radius: 16px;
   background: radial-gradient(ellipse 80% 55% at 30% 0%, var(--card-glow), transparent 70%), var(--surface);
 }
-.result-box.card-red { --card: #ff5a36; --card-glow: rgba(255, 90, 54, 0.14); }
-.result-box.card-yellow { --card: #ffd21f; --card-glow: rgba(255, 210, 31, 0.14); }
-.result-box.card-green { --card: #3ddc84; --card-glow: rgba(61, 220, 132, 0.14); }
+.result-box.card-red { --card: #ff3b30; --card-glow: rgba(255, 59, 48, 0.14); }
+.result-box.card-yellow { --card: #ffe600; --card-glow: rgba(255, 230, 0, 0.14); }
+.result-box.card-green { --card: #2ecc71; --card-glow: rgba(46, 204, 113, 0.14); }
 
 .result-box-title {
   margin: 0;
@@ -848,7 +848,16 @@ a { color: var(--accent); }
 .result-box .score-dial-fill { stroke: var(--card); }
 .result-box .score-dial svg { filter: drop-shadow(0 0 6px var(--card-glow)); }
 .result-box .score-dial-value { font-size: clamp(2.6rem, 12vw, 3.4rem); }
-.result-box-referee { width: min(140px, 36vw); height: auto; display: block; }
+.result-box-referee {
+  width: min(132px, 34vw);
+  height: auto;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  display: block;
+  border-radius: 12px;
+  border: 2px solid var(--card);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+}
 
 .result-box-label { margin: 0; color: #b8b8b0; font-size: 0.95rem; }
 .result-box-band {

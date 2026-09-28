@@ -1,8 +1,8 @@
-import redCard from "../assets/referee-red-card.svg";
-import yellowCard from "../assets/referee-yellow-card.svg";
-import greenCard from "../assets/referee-green-card.svg";
+import redCard from "../assets/referee-red.webp";
+import yellowCard from "../assets/referee-yellow.webp";
+import greenCard from "../assets/referee-green.webp";
 
-// Referee holding up a card. Card colour follows the score band.
+// Photo of a referee holding up a card. Card colour follows the score band.
 const CARDS = {
   red: { src: redCard, label: "red" },
   yellow: { src: yellowCard, label: "yellow" },
@@ -15,9 +15,9 @@ export default function RefereeIcon({ card = "yellow", className = "" }) {
     <img
       src={src}
       alt={`Referee holding up a ${label} card`}
-      className={`referee-icon ${className}`.trim()}
-      width="140"
-      height="158"
+      className={`referee-photo ${className}`.trim()}
+      width="450"
+      height="600"
     />
   );
 }
