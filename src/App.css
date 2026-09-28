@@ -496,7 +496,7 @@ a { color: var(--accent); }
   background:
     radial-gradient(ellipse 80% 55% at 50% 0%, rgba(232, 255, 46, 0.22), transparent 70%),
     linear-gradient(180deg, rgba(10, 10, 10, 0.55) 0%, rgba(10, 10, 10, 0.92) 60%, #0a0a0a 100%),
-    url("./assets/home-hockey.webp") center 40% / cover;
+    url("./assets/home-grid.webp") center / cover;
 }
 
 .intro-hero-inner {
@@ -705,7 +705,7 @@ a { color: var(--accent); }
   background:
     radial-gradient(ellipse 80% 50% at 50% 0%, rgba(232, 255, 46, 0.2), transparent 70%),
     linear-gradient(180deg, rgba(10, 10, 10, 0.25) 0%, rgba(10, 10, 10, 0.7) 55%, #0a0a0a 100%),
-    url("./assets/home-hockey.webp") center 40% / cover;
+    url("./assets/home-grid.webp") center / cover;
 }
 .intro-hero::after {
   content: "";
