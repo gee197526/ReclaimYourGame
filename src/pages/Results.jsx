@@ -10,6 +10,15 @@ import {
 import { scoreQuiz, isFirstTimer, matchKeywordGroup } from "../lib/scoreQuizV2";
 import SportIcon from "../components/SportIcon";
 import ScoreDial from "../components/ScoreDial";
+import RefereeIcon from "../components/RefereeIcon";
+
+// Card colour for each score band: red for low, yellow for on the fence, green for go.
+const BAND_CARD = {
+  low: "red",
+  moderate: "yellow",
+  high: "green",
+  veryhigh: "green"
+};
 
 export default function Results() {
   const location = useLocation();
@@ -23,6 +32,7 @@ export default function Results() {
 
   const firstTimer = isFirstTimer(answers);
   const { score, band, lever } = scoreQuiz(answers);
+  const card = BAND_CARD[band.id] ?? "yellow";
   const goal = goalOptions.find((g) => g.id === answers.S2);
   const showGpWarning = answers[GP_WARNING.trigger.question] === GP_WARNING.trigger.option;
 
@@ -30,120 +40,133 @@ export default function Results() {
   const explanation = keywordGroup?.paragraph ?? categoryContent[lever]?.paragraph;
   const leverTip = categoryContent[lever]?.lever;
   const kitLine = kitIntro[answers.D1];
+  const sportName = sport.name.toLowerCase();
 
   return (
-    <div className="results-container">
-      {/* 1. Score and band headline */}
-      <section className={`score-card band-${band.id}`}>
-        <p className="score-kicker">Your comeback score</p>
-        <p className="score-label">
-          Likelihood of {firstTimer ? "getting into" : "getting back into"} {sport.name.toLowerCase()}
+    <div className="results-container results-v2">
+      {/* 1. Your result */}
+      <section className={`result-box card-${card}`} aria-labelledby="result-heading">
+        <h2 id="result-heading" className="result-box-title">Your result</h2>
+        <div className="result-box-visual">
+          <ScoreDial score={score} />
+          <RefereeIcon card={card} className="result-box-referee" />
+        </div>
+        <p className="result-box-label">
+          Your chance of {firstTimer ? "getting into" : "getting back into"} {sportName}
         </p>
-        <ScoreDial score={score} />
-        <p className="score-band">{band.name}</p>
-        <h1 className="score-headline">{band.headline}</h1>
+        <span className="result-box-band">{band.name}</span>
+        <h1 className="result-box-headline">{band.headline}</h1>
+        <p className="result-box-message">{band.message}</p>
+        <p className="result-box-caveat">{band.caveat}</p>
       </section>
 
       {showGpWarning && (
         <p className="gp-warning" role="note">{GP_WARNING.text}</p>
       )}
 
-      {/* 2. Band message and caveats */}
-      <section className="results-cta">
-        <p>{band.message}</p>
-        <p className="caveat">{band.caveat}</p>
-        <p className="caveat">{GENERAL_CAVEAT}</p>
-      </section>
+      {/* 2. What your answers say */}
+      <section className="result-block" aria-labelledby="answers-heading">
+        <h2 id="answers-heading" className="result-block-title">What your answers say</h2>
+        {explanation && <p className="result-block-lead">{explanation}</p>}
 
-      {/* 3. Explanation and 4. biggest lever */}
-      {explanation && (
-        <section className="results-cta">
-          <h3>What your answers say</h3>
-          <p>{explanation}</p>
-        </section>
-      )}
-      {leverTip && (
-        <section className="results-cta lever-card">
-          <h3>Your biggest lever</h3>
-          <p>{leverTip}</p>
-        </section>
-      )}
+        {leverTip && (
+          <div className="lever-box">
+            <h3>Your biggest lever</h3>
+            <p>{leverTip}</p>
+          </div>
+        )}
 
-      {goal && (
-        <section className="results-cta goals-card">
-          <h3>Your goal: {((firstTimer && goal.firstTimerLabel) || goal.label).toLowerCase()}</h3>
+        {goal && (
+          <div className="result-sub">
+            <h3>Your goal: {((firstTimer && goal.firstTimerLabel) || goal.label).toLowerCase()}</h3>
+            <ul className="detail-list">
+              {goal.bullets.map((point) => (
+                <li key={point}>{point}</li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        <div className="result-sub">
+          {sport.photo && (
+            <img src={sport.photo} alt={sport.name} className="result-sport-photo" loading="lazy" />
+          )}
+          <h3 className="result-sport-heading">
+            <SportIcon sport={sport.id} size={28} />
+            {sport.name}
+          </h3>
+          <p>{sport.synopsis}</p>
+        </div>
+
+        <div className="result-sub">
+          <h3>Why people love it</h3>
           <ul className="detail-list">
-            {goal.bullets.map((point) => (
+            {sport.whyPeopleLovedIt.map((point) => (
               <li key={point}>{point}</li>
             ))}
           </ul>
-        </section>
-      )}
+        </div>
 
-      {/* 5. Sport content and 6. kit */}
-      <section className="sport-result">
-        {sport.photo && (
-          <img src={sport.photo} alt={sport.name} className="sport-result-photo" loading="lazy" />
-        )}
-        <h2 className="sport-result-heading">
-          <SportIcon sport={sport.id} size={34} />
-          {sport.name}
-        </h2>
-        <p>{sport.synopsis}</p>
+        <div className="result-sub">
+          <h3>{firstTimer ? `Getting started in ${sportName}` : `Getting back into ${sportName}`}</h3>
+          <ul className="detail-list">
+            {sport.gettingBack.map((point) => (
+              <li key={point}>{point}</li>
+            ))}
+          </ul>
+        </div>
+      </section>
 
-        <h3>Why people love it</h3>
-        <ul className="detail-list">
-          {sport.whyPeopleLovedIt.map((point) => (
-            <li key={point}>{point}</li>
-          ))}
-        </ul>
+      {/* 3. Your kit */}
+      <section className="result-block" aria-labelledby="kit-heading">
+        <div className="result-block-title-row">
+          <h2 id="kit-heading" className="result-block-title">Your kit</h2>
+          <span className="ad-badge">Ad</span>
+        </div>
+        {kitLine && <p className="result-block-lead">{kitLine}</p>}
 
-        <h3>{firstTimer ? "Getting started" : "Getting back in"}</h3>
-        <ul className="detail-list">
-          {sport.gettingBack.map((point) => (
-            <li key={point}>{point}</li>
-          ))}
-        </ul>
-
-        <h3>Kit to consider <span className="ad-badge">Ad</span></h3>
-        {kitLine && <p>{kitLine}</p>}
-        <p className="ad-disclosure">
-          These are affiliate links. If you buy through one, we may earn a small commission
-          at no extra cost to you.
-        </p>
-        <ul className="kit-list">
+        <ul className="kit-rows">
           {sport.kit.map((item) => (
             <li key={item.name}>
-              <a href={item.link} target="_blank" rel="noopener noreferrer">
-                {item.name}
+              <a href={item.link} target="_blank" rel="noopener noreferrer sponsored" className="kit-row">
+                <span className="kit-row-name">{item.name}</span>
+                <span className="kit-row-cta">View</span>
               </a>
             </li>
           ))}
         </ul>
 
-        <h3>Books to consider <span className="ad-badge">Ad</span></h3>
+        {sport.books?.length > 0 && (
+          <>
+            <h3 className="kit-books-title">A book for the comeback</h3>
+            <ul className="kit-rows">
+              {sport.books.map((item) => (
+                <li key={item.name}>
+                  <a href={item.link} target="_blank" rel="noopener noreferrer sponsored" className="kit-row kit-row-book">
+                    {item.cover && <img src={item.cover} alt="" className="book-cover" loading="lazy" />}
+                    <span className="kit-row-name">{item.name}</span>
+                    <span className="kit-row-cta">View</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </>
+        )}
+
         <p className="ad-disclosure">
           These are affiliate links. If you buy through one, we may earn a small commission
           at no extra cost to you.
         </p>
-        <ul className="book-list">
-          {sport.books.map((item) => (
-            <li key={item.name}>
-              <a href={item.link} target="_blank" rel="noopener noreferrer">
-                {item.cover && <img src={item.cover} alt="" className="book-cover" loading="lazy" />}
-                <span>{item.name}</span>
-              </a>
-            </li>
-          ))}
-        </ul>
       </section>
 
-      <section className="results-cta">
+      <section className="result-clubs">
         <h3>Clubs near {answers.S3 || "you"}</h3>
-        <p className="placeholder-note">Club finder coming in a later phase.</p>
+        <p className="placeholder-note">Club finder coming soon.</p>
       </section>
 
-      <Link to="/" className="btn-secondary">Start over</Link>
+      <Link to="/" className="btn-secondary result-restart">Take the quiz again</Link>
+
+      <p className="result-small-print">{GENERAL_CAVEAT}</p>
     </div>
   );
 }
